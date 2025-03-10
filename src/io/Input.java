@@ -21,4 +21,9 @@ public class Input {
       throw new RuntimeException();
     }
   }
+
+  // Remove buffer
+  public static void printNextLine(){
+    sc.nextLine();
+  }
 }

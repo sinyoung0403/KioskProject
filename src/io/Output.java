@@ -17,6 +17,11 @@ public class Output {
     System.out.printf("%d. %s\n", a, b);
   }
 
+  // S 하나만을 받는 포맷팅 출력문
+  public static void printfStringOutput(String a, String b){
+    System.out.printf("%s | %s \n", a,b);
+  }
+
   // 구분선 출력문
   public static void printStepDivider() {
     System.out.println("*****************************");
@@ -26,4 +31,5 @@ public class Output {
   public static void printLineDivider() {
     System.out.println("-------------------------------");
   }
+
 }

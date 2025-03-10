@@ -3,6 +3,7 @@ package level5;
 import io.Input;
 import io.Output;
 
+import java.util.Scanner;
 import java.util.*;
 
 public class Kiosk {
