@@ -12,12 +12,15 @@ public class Input {
       return sc.nextInt();
     } catch (InputMismatchException e) {
       Output.printOutput("숫자를 입력하셔야 합니다.");
+      Input.printNextLine();
       throw new RuntimeException();
     } catch (NullPointerException e){
       Output.printOutput("입력값이 비어있습니다.");
+      Input.printNextLine();
       throw new RuntimeException();
     } catch (NumberFormatException e) {
       Output.printOutput("유요한 숫자가 아닙니다.");
+      Input.printNextLine();
       throw new RuntimeException();
     }
   }

@@ -5,9 +5,9 @@ import java.util.*;
 public class Main {
   public static void main(String[] args) {
     // Menu 카테고리 이름 설정
-    Menu burger = new Menu("Burger");
-    Menu drink = new Menu("Drink");
-    Menu desert = new Menu("Desert");
+    Menu burger = new Menu("Burger \uD83C\uDF54");
+    Menu drink = new Menu("Drink \uD83E\uDD64");
+    Menu desert = new Menu("Desert \uD83C\uDF5F");
 
     // Burger 카테고리를 추가해보자. 이렇게하면.. 음.. 일단 나중에 생각해보자.
     burger.addMenuItems(new MenuItem("Whopper",7100,"버거킹의 대표 메뉴로, 두툼한 패티와 신선한 채소가 어우러져 클래식한 맛을 제공하는 와퍼"));

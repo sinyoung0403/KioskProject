@@ -6,10 +6,15 @@ public class Output {
     System.out.println(message);
   }
 
-  // 선택 메뉴 포맷팅 출력문
+  // level 5 이전 > 선택 메뉴 포맷팅 출력문
   public static void printfChoiceOutput(String a, String b, String c){
     System.out.printf("선택한 메뉴 : %s | %s 원 | %s \n \n", a,b,c);
     System.out.println("초기 메뉴판으로 돌아갑니다.");
+  }
+
+  // 도전과제 출력문 > 선택 메뉴 포맷팅 출력문
+  public static void printfChoice(String a, String b, String c){
+    System.out.printf("선택한 메뉴 : %s | %s 원 | %s \n \n", a,b,c);
   }
 
   // 모든 카테고리 포맷팅 출력문

@@ -31,7 +31,7 @@ public class Menu {
   }
   // Show Choice Menu
   public void displaySelectedMenu(Integer index){
-    Output.printfChoiceOutput(menuItems.get(index).getMenuName(),menuItems.get(index).getMenuPrice().toString(),menuItems.get(index).getMenuDescription());
+    Output.printfChoice(menuItems.get(index).getMenuName(),menuItems.get(index).getMenuPrice().toString(),menuItems.get(index).getMenuDescription());
   }
 
   /* Getter Finish */

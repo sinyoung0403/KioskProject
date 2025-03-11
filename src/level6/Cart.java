@@ -6,11 +6,12 @@ import java.util.*;
 
 // Cart List 를 만들거임.
 public class Cart {
-  // 나중에 이 리스트를 final 로 두는게 맞는지 확인해보기
-  // >> 1. 불변성 왜 지켜나가야하는지 . 새로운 리스트로 재할당이 안된다.
-  // 2. final 객체에 final을 stack 스택에 쌓인 걸 heap 저장된거는ㄴ수정이가능한데 stack
   private final List<CartItem> cartItems = new ArrayList<>();
 
+  // 나중에 이 리스트를 final 로 두는게 맞는지 확인해보기 > final 로 두는 것이 맞다 !
+  // >> 1. 불변성 왜 지켜나가야하는지 . 새로운 리스트로 재할당이 안된다.
+  // stack 에 있는 걸 바꾸지 못한다는 거지. heap 영역에 있는걸 바꿀 수 있다는 것.
+  // 2. final 객체에 stack 스택에 쌓인 걸 heap 저장된거는ㄴ수정이가능한데 stack
   public void addCartItems(MenuItem menuItem){
     CartItem c = new CartItem(menuItem.getMenuName(), menuItem.getMenuPrice(),menuItem.getMenuDescription());
     boolean isAddable = true;
@@ -33,11 +34,13 @@ public class Cart {
       cartItems.add(c);
       Output.printfStringOutput(c.getCartItemName(),"해당 음식이 장바구니에 추가 되었습니다.");
     }
+    Output.printOutput("메뉴판으로 돌아갑니다. \n");
   }
 
   // Output name, price, quantity for each menu
   public void showCartItems(){
     Output.printLineDivider();
+    Output.printOutput("아래와 같이 주문하겠습니까? \n");
     Output.printOutput("[Orders]");
     int sum = 0;
     for (CartItem items : cartItems) {
@@ -72,5 +75,4 @@ public class Cart {
       throw new RuntimeException(); // 아마 null 에러가 뜰 것임. 근데 애초에 아닐 거라서 안 뜰거긴 한데 !!..
     }
   }
-
 }

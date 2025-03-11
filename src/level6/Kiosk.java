@@ -16,21 +16,21 @@ public class Kiosk {
     Cart cart = new Cart();
     int orderCategory;
     Menu menu;
-    boolean isRunning = true;
-    while (isRunning){ // while Start
+    boolean isMainLoopRunning = true;
+    while (isMainLoopRunning){ // while Start
       Output.printOutput("[ Burger King | MAIN MENU ]");
       showAllCategory();
-      Output.printOutput("0. 종료");
-      if (cart.cartItemsNotEmpty()) { // 만약 값이 비어 있지 있다면 ?? true 입니다 !
-        Output.printOutput("4. Orders       | 장바구니를 확인 후 주문합니다.");
-        Output.printOutput("5. Cancel       | 진행중인 주문을 취소합니다.");
+      if (cart.cartItemsNotEmpty()) {
+        Output.printOutput("4. Orders     | 장바구니를 확인 후 주문합니다.");
+        Output.printOutput("5. Cancel     | 진행중인 주문을 취소합니다.");
       }
-
-      try { // 복잡한데 case 문으로 해버려도 될 듯 !?!   um ...
+      Output.printOutput("0. Exit       | 종료합니다.");
+      try {
         orderCategory = Input.getInput();
+        Input.printNextLine();
         switch (orderCategory) {
           case 0 -> {
-            isRunning = false;
+            isMainLoopRunning = false;
             continue;
           }
           case 4 -> {
@@ -43,10 +43,11 @@ public class Kiosk {
             switch (orderConfirmation) {
               case 1 -> {
                 Output.printfStringOutput("주문이 완료되었습니다.", "총 금액: " + Integer.toString(cart.getTotalPrice()));
-                isRunning = false;
+                cart.clearCartItems();
+                Output.printOutput("메뉴판으로 돌아갑니다. \n");
                 continue;
               }
-              case 2 -> {
+               case 2 -> {
                 System.out.println("메뉴판으로 돌아갑니다.");
                 continue;
               }
@@ -56,6 +57,8 @@ public class Kiosk {
           case 5 -> {
             if(cart.cartItemsNotEmpty()) {
               cart.clearCartItems();
+              Output.printOutput("장바구니를 취소했습니다. \n메뉴판으로 돌아갑니다.");
+              Output.printStepDivider();
             } else {
               throw new IndexOutOfBoundsException();
             }
@@ -71,15 +74,14 @@ public class Kiosk {
         continue;
       }
 
-
       Output.printOutput("[ "+menu.getCategoryName()+" ] 를 선택했습니다. \n");
       Output.printLineDivider();
-      Output.printOutput("[ "+menu.getCategoryName()+" ]");
+      Output.printOutput("[ Burger King | "+menu.getCategoryName()+" Menu ]");
 
       menu.showMenuItems();
       Output.printOutput("0. 뒤로가기.");
-
-      while(true){
+      boolean isSubLoopRunning = true;
+      while(isSubLoopRunning){
         int orderMenuItem;
         try { // Back or print Menu List
           orderMenuItem = Input.getInput();
@@ -87,16 +89,32 @@ public class Kiosk {
             Output.printLineDivider();
             Output.printOutput("메인 메뉴로 이동합니다. \n");
           } else {
-            // Show Choice Menu
             menu.displaySelectedMenu(orderMenuItem-1);
-            cart.addCartItems(getSpecificMenuItem(menu, orderMenuItem-1));
+            Output.printOutput("위 메뉴를 장바구니에 추가하시겠습니까?"+
+                                "\n1. 확인        | 2. 취소");
+            int categoryStatus = Input.getInput();
+            switch (categoryStatus){
+              case 1 -> {
+                // Show Choice Menu
+                cart.addCartItems(getSpecificMenuItem(menu, orderMenuItem-1));
+                isSubLoopRunning = false;
+              }
+              case 2 -> {
+                Output.printOutput("장바구니에 담지 않았습니다. \n[ Main Menu ] 로 돌아갑니다.\n");
+                Input.printNextLine();
+                isSubLoopRunning = false;
+              }
+              default -> {
+                throw new IndexOutOfBoundsException();
+              }
+            }
           }
-          break;
         } catch (IndexOutOfBoundsException e) {// Range Error
-          Output.printOutput("번호 내에서 입력부탁드립니다.");
-          Input.printNextLine();
+          Output.printOutput("번호 내에서 입력부탁드립니다. \n[ Main Menu ] 로 돌아갑니다.\n");
+          break;
         } catch (RuntimeException e) { // Input Error - Print error message in input.java
-          Input.printNextLine();
+          Output.printOutput("[ Main Menu ] 로 돌아갑니다.\n ");
+          break;
         }
       }
       Output.printStepDivider();
