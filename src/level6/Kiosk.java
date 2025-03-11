@@ -27,7 +27,6 @@ public class Kiosk {
       Output.printOutput("0. Exit       | 종료합니다.");
       try {
         orderCategory = Input.getInput();
-        Input.printNextLine();
         switch (orderCategory) {
           case 0 -> {
             isMainLoopRunning = false;
@@ -68,7 +67,6 @@ public class Kiosk {
         }
       } catch (IndexOutOfBoundsException e) { // Range Error
         Output.printOutput("번호 내에서 입력부탁드립니다.");
-        Input.printNextLine();
         continue;
       } catch (RuntimeException e) { // Input Error - Print error message in input.java
         continue;
@@ -101,7 +99,6 @@ public class Kiosk {
               }
               case 2 -> {
                 Output.printOutput("장바구니에 담지 않았습니다. \n[ Main Menu ] 로 돌아갑니다.\n");
-                Input.printNextLine();
                 isSubLoopRunning = false;
               }
               default -> {

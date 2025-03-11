@@ -1,14 +1,17 @@
-package level6;
+package level7.Menu;
+
 
 public class MenuItem {
-  // 이름
+  /* field */
+  // Name
   private final String menuName;
-  // 가격
+  // Price
   private final Integer menuPrice;
-  // 설명
+  // Description
   private final String menuDescription;
 
-  MenuItem(String menuName, Integer menuPrice, String menuDescription){
+  /* Constructor */
+  public MenuItem(String menuName, Integer menuPrice, String menuDescription){
     this.menuName = menuName;
     this.menuPrice = menuPrice;
     this.menuDescription = menuDescription;
