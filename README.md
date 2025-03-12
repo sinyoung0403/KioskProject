@@ -27,7 +27,7 @@
 
 - 해당 프로젝트는 사용자의 입력을 받아 주문을 처리하는 Kiosk Java Project 입니다.
 
-## 3. 프로젝트 패키지 설명
+## 3. 프로젝트 패키지 설명 음 'ㅡ' .. 이 설명이 뒤로 가야하나 ..
 
 ### 1) `level1` 패키지
 
@@ -115,32 +115,48 @@
 
 # 📑 요구사항
 
-## 1. Lv 1. 기본적인 키오스크 프로그래밍 (Scanner를 활용한 입력, 반복문과 조건문을 활용한 입력 처리)
+## Lv 1. 기본적인 키오스크 프로그래밍 
 
-➡ 저장 값들을 `private` 로 선언하여 관리했으며, 이를 Getter 와 Setter만 접근하게 구현했습니다.
-- `private static List<Object> calculatorList = new ArrayList<>();`
-- 다른 `Listner` 클래스에서 공유가 되어야하는 값이기 때문에 `static` 으로 설정.
+### 1) Scanner 를 활용한 입력
 
-2 연산 결과들 중 가장 먼저 저장된 데이터를 삭제하는 기능을 가진 메서드를 구현
+- `int inputNumber = sc.nextInt();` 를 통하여 사용자를 입력을 활용
 
-➡ `del` 버튼을 누를 시 가장 먼저 저장된 연산결과를 삭제하도록 구현했습니다.
+### 2) 반복문과 조건문을 활용한 입력 처리
 
-3 Enum, 제네릭, 람다 & 스트림을 이해한 계산기
-- Enum 타입을 활용하여 연산자 타입에 대한 정보를 관리하고 이를 사칙연산 계산기 ArithmeticCalculator 클래스에 활용
+- `while` 이용하여 `0(Exit)` 입력 전까지 반복 
+- `Switch` 이용하여 사용자의 입력에 따라 조작
 
-➡ Enum 을 활용하여 연산자 타입에 따른 사칙연산을 구현했습니다.
-- `public enum OperatorType{}`
+## Lv2. 객체 지향 설계를 적용한 햄버거 메뉴의 클래스 관리
 
-4 double 타입의 값을 전달 받아도 연산이 수행하도록 만들기
-- 피연산자를 여러 타입으로 받을 수 있도록 기능을 확장 (제네릭)
+### 1) 클래스에 요구사항에 따른 필드값이 존재하는가
 
-➡ 필드에서 num 값을 `T`로 선언했습니다.
+- `MenuItem.java` 에 `flied` 값 [`menuName`, `menuPrice`, `menuDescription`] 선언
 
-5 저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 들을 출력
-- 해당 메서드를 구현할 때 Lambda & Stream을 활용하여 구현
+### 2) List 와 new 키워드를 활용했는가
 
-➡ 저장값을 재 출력할 때 람다를 사용했습니다.
-- `String textList = (String) cs.getSaveList().stream().reduce("",(s1,s2) -> s1+"<br>"+s2+"<br>");`
+- `List<MenuItem> menuItems = new ArrayList<>();` 를 통해 `List` 선언
+- `add(new MenuItem())` 를 코드를 통하여 적절히 `new` 키워드 활용
+
+## Lv3. 객체 지향 설계를 적용한 순서 제어의 클래스 관리
+
+### 1) Kiosk 클래스 생성 및 활용
+
+- `MenuItem` 을 관리하는 리스트 `flied` 로 존재
+- Kiosk 생성자를 통해 값을 할당 `Kiosk(List<MenuItem> menuItems)`
+
+### 2) `start()` 메서드 활용한 입/출력 및 종료 흐름 처리
+
+- `Main.java` 가 관리하던 입력과 반복문 로직을 `start()` 함수로 관리
+
+## Lv 4. 객체 지향 설계를 적용한 음식 메뉴와 주문 내역의 클래스 기반 관리
+
+### 1) Menu 클래스를 활용한 메뉴 카테고리 관리 및 MenuItem 리스트 포함 여부
+
+- 음 
+
+### 2) 메뉴 카테고리 이름을 반환하는 메서드 구현 여부
+
+
 
 ---
 
