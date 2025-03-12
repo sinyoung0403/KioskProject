@@ -1,49 +1,45 @@
 package level7.cart;
 
 import io.Output;
+import level7.Menu.MenuItem;
 
 public class CartItem {
-  // Field
-  private final String itemName;
-  private final Integer itemPrice;
+  // Field  /  Menu item List를 주는 걸 고려.
+  // 의존성. //
+  private final MenuItem menuItem;
   private Integer itemQuantity = 1;
-  private final String itemDescription;
 
   // Constructor
-  public CartItem(String itemName,Integer itemPrice, String itemDescription){
-    this.itemName = itemName;
-    this.itemPrice = itemPrice;
-    this.itemDescription = itemDescription;
+  public CartItem(MenuItem menuItem) {
+    this.menuItem = menuItem;
   }
 
   /* Getter Start*/
-  public String getItemName() {
-    return itemName;
+
+  public MenuItem getMenuItem() {
+    return menuItem;
   }
 
-  public Integer getItemPrice() {
-    return itemPrice;
+  public String getCartItemName() {
+    return menuItem.getMenuName();
   }
 
   public Integer getItemQuantity() {
     return itemQuantity;
   }
 
-  public String getItemDescription() {
-    return itemDescription;
-  }
   /* Getter Finish*/
 
   /* Setter Start */
   // Add in the quantity
-  public void addCartItemQuantity(){
-    this.itemQuantity ++;
+  public void addCartItemQuantity() {
+    this.itemQuantity++;
   }
   /* Setter Finish */
 
   // Show All Cart Items (Name, Price, Description, Quantity)
-  public void showAllCartItems(){
-    Output.printOutput("[총 수량: " + getItemQuantity() + " ] " + getItemName() + " | " + getItemPrice() + " 원 | " + getItemDescription());
+  public void showAllCartItems() {
+    Output.printOutput("[ 총 수량: " + getItemQuantity() + " ] " + menuItem.getMenuName() + " | " + menuItem.getMenuPrice() + " 원 | " + menuItem.getMenuDescription());
   }
 }
 

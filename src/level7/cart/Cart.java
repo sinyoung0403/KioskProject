@@ -5,42 +5,45 @@ import level7.Menu.MenuItem;
 
 import java.util.*;
 
+/**
+ *
+ */
+
 public class Cart {
   private final List<CartItem> cartItems = new ArrayList<>();
 
   // CartItems add new Cart
-  public void addCartItems(MenuItem menuItem){
-    CartItem c = new CartItem(menuItem.getMenuName(), menuItem.getMenuPrice(),menuItem.getMenuDescription());
-    boolean isAddable = true;
-    if(cartItems.isEmpty()){
+  public void addCartItems(MenuItem menuItem) {
+    CartItem c = new CartItem(menuItem);
+
+    // Simple Code - Early Return
+    if (cartItems.isEmpty()) {
       cartItems.add(c);
-      Output.printfStringOutput(c.getItemName()," 해당 음식이 장바구니에 추가 되었습니다.");
-      isAddable = false;
-    } else {
-      for (CartItem items : cartItems){
-        String current = items.getItemName().trim();
-        if (current.equalsIgnoreCase(menuItem.getMenuName().trim())) {
-          items.addCartItemQuantity();
-          Output.printfStringOutput(c.getItemName(),"수량이 추가 되었습니다.");
-          isAddable = false;
-        }
-      }
+      Output.printfStringOutput(c.getCartItemName(), " 해당 음식이 장바구니에 추가 되었습니다.");
+      return;
     }
-    if (isAddable){
-      cartItems.add(c);
-      Output.printfStringOutput(c.getItemName()," 해당 음식이 장바구니에 추가 되었습니다.");
-    }
-    Output.printMainBack();
+
+    cartItems.stream()
+            .filter(item ->
+                    item.getCartItemName().trim().equals(menuItem.getMenuName().trim()))
+            .findFirst()
+            .ifPresentOrElse((item) -> {
+              item.addCartItemQuantity();
+              Output.printfStringOutput(c.getCartItemName(), "수량이 추가 되었습니다.");
+            }, () -> {
+              cartItems.add(c);
+              Output.printfStringOutput(c.getCartItemName(), " 해당 음식이 장바구니에 추가 되었습니다.");
+            });
   }
 
   // Output name, price, quantity for each menu
-  public void showCartItems(){
+  public void showCartItems() {
     Output.printLineDivider();
     Output.printOutput("아래와 같이 주문하겠습니까? \n");
     Output.printOutput("[Orders]");
-    for (CartItem items : cartItems) {
-      items.showAllCartItems();
-    }
+
+    cartItems.forEach(CartItem::showAllCartItems);
+
     Output.printOutput("\n[Total]");
     Output.printOutput(Integer.toString(getTotalPrice()));
     Output.printLineDivider();
@@ -49,42 +52,43 @@ public class Cart {
   // Add all the prices on the list
   public int getTotalPrice() {
     return cartItems.stream()
-            .map(cartItem -> cartItem.getItemPrice()*cartItem.getItemQuantity())
+            .map(cartItem -> cartItem.getMenuItem().getMenuPrice() * cartItem.getItemQuantity())
             .reduce(0, Integer::sum);
   }
 
   // Check with boolean whether the list is empty or not
-  public boolean cartItemsNotEmpty() {
+  public boolean isCartNotEmpty() {
     return !cartItems.isEmpty();
   }
 
   // Initialize the list
   public void clearCartItems() {
-    try {
-      cartItems.clear();
-    } catch (Exception e) {
-      System.out.println("값이 비어있습니다. \n");
-      throw new RuntimeException();
-      // "null error" occurs when the shopping cart is empty.
-      // However, the error does not occur because it is initialized after checking null in the first place.
-    }
+    cartItems.clear();
   }
 
   // remove a specific menu in Cart
-  public void removeCartItems(String text){
-    if (!cartItemsNotEmpty()) {
+  public void removeCartItems(String text) {
+    if (!isCartNotEmpty()) {
       Output.printOutput("장바구니가 비어 있었습니다. \n");
-      throw new RuntimeException();
-    } else {
-      try{
-        CartItem find = cartItems.stream()
-                .filter(cartItem -> cartItem.getItemName().equals(text))
-                .findAny().orElseThrow(); // NoSuchElementException Error -> If there is no equal value, the corresponding error occurs
-        Output.printOutput(text+"가 장바구니에서 삭제되었습니다.\n[ Main Menu ] 로 돌아갑니다. \n");
-      } catch (NoSuchElementException e) {
-        Output.printOutput("장바구니에 있는 메뉴를 입력하셔야 합니다. \n[ Main Menu ] 로 돌아갑니다. \n");
-        throw new RuntimeException();
-      }
+      return;
     }
+
+//    Optional<CartItem> find = cartItems.stream()
+//            .filter(cartItem -> cartItem.getCartItemName().equals(text))
+//            .findAny();
+//    if (find.isPresent()) {
+//      cartItems.remove(find.get());
+//      Output.printOutput(text + "가 장바구니에서 삭제되었습니다.\n[ Main Menu ] 로 돌아갑니다. \n");
+//    } else {
+//      Output.printOutput("장바구니에 있는 메뉴를 입력하셔야 합니다. \n[ Main Menu ] 로 돌아갑니다. \n");
+//    }
+
+    cartItems.stream()
+            .filter(cartItem -> cartItem.getCartItemName().equals(text.trim()))
+            .findAny()
+            .ifPresentOrElse((item) -> {
+              cartItems.remove(item);
+              Output.printOutput(text.trim() + " 가 장바구니에서 삭제되었습니다.");
+            }, () -> Output.printOutput("장바구니에 있는 메뉴를 입력하셔야 합니다."));
   }
 }

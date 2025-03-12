@@ -11,7 +11,7 @@ public class MenuItem {
   private final String menuDescription;
 
   /* Constructor */
-  public MenuItem(String menuName, Integer menuPrice, String menuDescription){
+  public MenuItem(String menuName, Integer menuPrice, String menuDescription) {
     this.menuName = menuName;
     this.menuPrice = menuPrice;
     this.menuDescription = menuDescription;
@@ -33,10 +33,10 @@ public class MenuItem {
   // Give space if gap is "true"
   // Give printout without margin if "false"
   public String menuFormatString(boolean gap) {
-    if(gap) {
-      return String.format("%-25s | %d 원 | %s", menuName,menuPrice,menuDescription);
+    if (gap) {
+      return String.format("%-25s | %d 원 | %s", menuName, menuPrice, menuDescription);
     } else {
-      return String.format("%s | %d 원 | %s", menuName,menuPrice,menuDescription);
+      return String.format("%s | %d 원 | %s", menuName, menuPrice, menuDescription);
     }
   }
   /* Getter Finish */
