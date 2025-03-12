@@ -115,48 +115,77 @@
 
 # 📑 요구사항
 
-## Lv 1. 기본적인 키오스크 프로그래밍 
 
-### 1) Scanner 를 활용한 입력
+## [필수 기능] 
+### Lv 1. 기본적인 키오스크 프로그래밍 
+
+#### 1) Scanner 를 활용한 입력
 
 - `int inputNumber = sc.nextInt();` 를 통하여 사용자를 입력을 활용
 
-### 2) 반복문과 조건문을 활용한 입력 처리
+#### 2) 반복문과 조건문을 활용한 입력 처리
 
 - `while` 이용하여 `0(Exit)` 입력 전까지 반복 
 - `Switch` 이용하여 사용자의 입력에 따라 조작
 
-## Lv2. 객체 지향 설계를 적용한 햄버거 메뉴의 클래스 관리
+### Lv2. 객체 지향 설계를 적용한 햄버거 메뉴의 클래스 관리
 
-### 1) 클래스에 요구사항에 따른 필드값이 존재하는가
+#### 1) 클래스에 요구사항에 따른 필드값이 존재하는가
 
-- `MenuItem.java` 에 `flied` 값 [`menuName`, `menuPrice`, `menuDescription`] 선언
+- `MenuItem.java` 에 `Field` 값 [`menuName`, `menuPrice`, `menuDescription`] 선언
 
-### 2) List 와 new 키워드를 활용했는가
+#### 2) List 와 new 키워드를 활용했는가
 
 - `List<MenuItem> menuItems = new ArrayList<>();` 를 통해 `List` 선언
 - `add(new MenuItem())` 를 코드를 통하여 적절히 `new` 키워드 활용
 
-## Lv3. 객체 지향 설계를 적용한 순서 제어의 클래스 관리
+### Lv3. 객체 지향 설계를 적용한 순서 제어의 클래스 관리
 
-### 1) Kiosk 클래스 생성 및 활용
+#### 1) Kiosk 클래스 생성 및 활용
 
-- `MenuItem` 을 관리하는 리스트 `flied` 로 존재
-- Kiosk 생성자를 통해 값을 할당 `Kiosk(List<MenuItem> menuItems)`
+- `MenuItem` 을 관리하는 리스트 `Field` 로 존재
+- `Kiosk(List<MenuItem> menuItems)` 생성자를 통해 값을 할당 
 
-### 2) `start()` 메서드 활용한 입/출력 및 종료 흐름 처리
+#### 2) `start()` 메서드 활용한 입/출력 및 종료 흐름 처리
 
 - `Main.java` 가 관리하던 입력과 반복문 로직을 `start()` 함수로 관리
 
-## Lv 4. 객체 지향 설계를 적용한 음식 메뉴와 주문 내역의 클래스 기반 관리
+### Lv 4. 객체 지향 설계를 적용한 음식 메뉴와 주문 내역의 클래스 기반 관리
 
-### 1) Menu 클래스를 활용한 메뉴 카테고리 관리 및 MenuItem 리스트 포함 여부
+#### 1) Menu 클래스를 활용한 메뉴 카테고리 관리 및 MenuItem 리스트 포함 여부
 
-- 음 
+- `Menu.java` 클래스를 생성 후 `Menu` 를 관리
+- `List<MenuItem> menuItems = new ArrayList<>();` 를 통하여 `MenuItem` 리스트를 `Field`로 선언
+- `menu.menuItems.add(new MenuItem())` 를 통하여 `Menu` 속에 포함된 `List<MenuItem>`에 `MenuItem` 객체 삽입
 
-### 2) 메뉴 카테고리 이름을 반환하는 메서드 구현 여부
+#### 2) 메뉴 카테고리 이름을 반환하는 메서드 구현 여부
+
+- `getCategoryName()` 함수를 통하여 카테고리 이름 반환
+
+### Lv 5. 캡슐화 적용
+
+#### 1) 접근 제한자 활용
+
+- `Field` 로 선언된 지역 변수들을 `Default` -> `private` 변경
+- 일부 `Field` 는 `final` 로 선언.
+
+#### 2) Getter/Setter 를 활용해 데이터에 접근 여부
+
+- `getCategoryName()` 등 여러 개의 `Getter` 함수 생성
+- `addMenuItems()` 등 여러 개의 `Setter` 함수 생성
+
+### [도전] Lv 1. 장바구니 및 구매하기 기능 추가
+
+#### 1) 장바구니 기능 추가 여부
 
 
+#### 2) 주문 흐름 동작 여부
+
+- 
+
+#### 3) 잘못된 입력값에 대한 예외처리 여부
+
+-
 
 ---
 
