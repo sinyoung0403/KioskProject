@@ -4,46 +4,46 @@ import io.Output;
 
 public class CartItem {
   // Field
-  private final String cartItemName;
-  private final Integer cartItemPrice;
-  private Integer cartItemQuantity = 1;
-  private final String cartItemDescription;
+  private final String itemName;
+  private final Integer itemPrice;
+  private Integer itemQuantity = 1;
+  private final String itemDescription;
 
   // Constructor
-  public CartItem(String cartItemName,Integer cartItemPrice, String cartItemDescription){
-    this.cartItemName = cartItemName;
-    this.cartItemPrice = cartItemPrice;
-    this.cartItemDescription = cartItemDescription;
+  public CartItem(String itemName,Integer itemPrice, String itemDescription){
+    this.itemName = itemName;
+    this.itemPrice = itemPrice;
+    this.itemDescription = itemDescription;
   }
 
   /* Getter Start*/
-  public Integer getCartItemPrice() {
-    return cartItemPrice;
+  public String getItemName() {
+    return itemName;
   }
 
-  public Integer getCartItemQuantity() {
-    return cartItemQuantity;
+  public Integer getItemPrice() {
+    return itemPrice;
   }
 
-  public String getCartItemDescription() {
-    return cartItemDescription;
+  public Integer getItemQuantity() {
+    return itemQuantity;
   }
 
-  public String getCartItemName() {
-    return cartItemName;
+  public String getItemDescription() {
+    return itemDescription;
   }
   /* Getter Finish*/
 
   /* Setter Start */
   // Add in the quantity
   public void addCartItemQuantity(){
-    this.cartItemQuantity ++;
+    this.itemQuantity ++;
   }
   /* Setter Finish */
 
   // Show All Cart Items (Name, Price, Description, Quantity)
   public void showAllCartItems(){
-    Output.printOutput("[총 수량: " + getCartItemQuantity() + " ] " +getCartItemName() + " | " + getCartItemPrice() + " 원 | " + getCartItemDescription());
+    Output.printOutput("[총 수량: " + getItemQuantity() + " ] " + getItemName() + " | " + getItemPrice() + " 원 | " + getItemDescription());
   }
 }
 

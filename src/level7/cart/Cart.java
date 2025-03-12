@@ -14,21 +14,21 @@ public class Cart {
     boolean isAddable = true;
     if(cartItems.isEmpty()){
       cartItems.add(c);
-      Output.printfStringOutput(c.getCartItemName()," 해당 음식이 장바구니에 추가 되었습니다.");
+      Output.printfStringOutput(c.getItemName()," 해당 음식이 장바구니에 추가 되었습니다.");
       isAddable = false;
     } else {
       for (CartItem items : cartItems){
-        String current = items.getCartItemName().trim();
+        String current = items.getItemName().trim();
         if (current.equalsIgnoreCase(menuItem.getMenuName().trim())) {
           items.addCartItemQuantity();
-          Output.printfStringOutput(c.getCartItemName(),"수량이 추가 되었습니다.");
+          Output.printfStringOutput(c.getItemName(),"수량이 추가 되었습니다.");
           isAddable = false;
         }
       }
     }
     if (isAddable){
       cartItems.add(c);
-      Output.printfStringOutput(c.getCartItemName()," 해당 음식이 장바구니에 추가 되었습니다.");
+      Output.printfStringOutput(c.getItemName()," 해당 음식이 장바구니에 추가 되었습니다.");
     }
     Output.printMainBack();
   }
@@ -49,7 +49,7 @@ public class Cart {
   // Add all the prices on the list
   public int getTotalPrice() {
     return cartItems.stream()
-            .map(cartItem -> cartItem.getCartItemPrice()*cartItem.getCartItemQuantity())
+            .map(cartItem -> cartItem.getItemPrice()*cartItem.getItemQuantity())
             .reduce(0, Integer::sum);
   }
 
@@ -78,7 +78,7 @@ public class Cart {
     } else {
       try{
         CartItem find = cartItems.stream()
-                .filter(cartItem -> cartItem.getCartItemName().equals(text))
+                .filter(cartItem -> cartItem.getItemName().equals(text))
                 .findAny().orElseThrow(); // NoSuchElementException Error -> If there is no equal value, the corresponding error occurs
         Output.printOutput(text+"가 장바구니에서 삭제되었습니다.\n[ Main Menu ] 로 돌아갑니다. \n");
       } catch (NoSuchElementException e) {
