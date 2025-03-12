@@ -20,22 +20,25 @@ public class Menu {
   public List<MenuItem> getMenuItems(){
     return this.menuItems;
   }
+
   // Category Getter
   public String getCategoryName(){
     return this.categoryName;
   }
 
-  // Show list sequentially > 이거를 스트림으로 하라는 거 아녀 'ㅡ' ... 변환 가능..한 숫자를 해야한다네
+  // Show list sequentially
   public void showMenuItems(){
     AtomicInteger index = new AtomicInteger(1);
     menuItems.stream()
-            .map(item -> String.format("%d. %-25s | %s원 | %s",index.getAndIncrement(),item.getMenuName(),item.getMenuPrice(),item.getMenuDescription()))
+            .map(item ->
+                    String.format("%d. %s",index.getAndIncrement(),item.menuFormatString(true)))
             .forEach(System.out::println);
   }
 
   // Show Choice Menu
   public void displaySelectedMenu(Integer index){
-    Output.printfChoice(menuItems.get(index).getMenuName(),menuItems.get(index).getMenuPrice().toString(),menuItems.get(index).getMenuDescription());
+    MenuItem item = menuItems.get(index);
+    Output.printOutput("선택된 메뉴: "+item.menuFormatString(false));
   }
   /* Getter Finish */
 
@@ -44,6 +47,5 @@ public class Menu {
     menuItems.add(menuItem);
   }
   /* Setter Finish */
-
 }
 

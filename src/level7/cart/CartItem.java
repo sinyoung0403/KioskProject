@@ -43,7 +43,6 @@ public class CartItem {
 
   // Show All Cart Items (Name, Price, Description, Quantity)
   public void showAllCartItems(){
-    // Orders
     Output.printOutput("[총 수량: " + getCartItemQuantity() + " ] " +getCartItemName() + " | " + getCartItemPrice() + " 원 | " + getCartItemDescription());
   }
 }

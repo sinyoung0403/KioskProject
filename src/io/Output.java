@@ -14,7 +14,11 @@ public class Output {
 
   // 도전과제 출력문 > 선택 메뉴 포맷팅 출력문
   public static void printfChoice(String a, String b, String c){
-    System.out.printf("선택한 메뉴 : %s | %s 원 | %s \n \n", a,b,c);
+    System.out.printf("%s | %s 원 | %s \n \n", a,b,c);
+  }
+
+  public static void printMainBack(){
+    System.out.println("[ Main Menu ] 로 돌아갑니다. \n");
   }
 
   // 모든 카테고리 포맷팅 출력문

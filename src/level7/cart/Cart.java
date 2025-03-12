@@ -5,11 +5,10 @@ import level7.Menu.MenuItem;
 
 import java.util.*;
 
-// Cart List 를 만들거임.
 public class Cart {
   private final List<CartItem> cartItems = new ArrayList<>();
 
-  //
+  // CartItems add new Cart
   public void addCartItems(MenuItem menuItem){
     CartItem c = new CartItem(menuItem.getMenuName(), menuItem.getMenuPrice(),menuItem.getMenuDescription());
     boolean isAddable = true;
@@ -17,8 +16,7 @@ public class Cart {
       cartItems.add(c);
       Output.printfStringOutput(c.getCartItemName()," 해당 음식이 장바구니에 추가 되었습니다.");
       isAddable = false;
-    }
-    else {
+    } else {
       for (CartItem items : cartItems){
         String current = items.getCartItemName().trim();
         if (current.equalsIgnoreCase(menuItem.getMenuName().trim())) {
@@ -32,7 +30,7 @@ public class Cart {
       cartItems.add(c);
       Output.printfStringOutput(c.getCartItemName()," 해당 음식이 장바구니에 추가 되었습니다.");
     }
-    Output.printOutput("메뉴판으로 돌아갑니다. \n");
+    Output.printMainBack();
   }
 
   // Output name, price, quantity for each menu
@@ -40,23 +38,19 @@ public class Cart {
     Output.printLineDivider();
     Output.printOutput("아래와 같이 주문하겠습니까? \n");
     Output.printOutput("[Orders]");
-    int sum = 0;
     for (CartItem items : cartItems) {
       items.showAllCartItems();
-      sum += items.getCartItemPrice() * items.getCartItemQuantity();
     }
     Output.printOutput("\n[Total]");
-    Output.printOutput(Integer.toString(sum));
+    Output.printOutput(Integer.toString(getTotalPrice()));
     Output.printLineDivider();
   }
 
   // Add all the prices on the list
   public int getTotalPrice() {
-    int sum = 0;
-    for (CartItem items : cartItems) {
-      sum += items.getCartItemPrice() * items.getCartItemQuantity();
-    }
-    return sum;
+    return cartItems.stream()
+            .map(cartItem -> cartItem.getCartItemPrice()*cartItem.getCartItemQuantity())
+            .reduce(0, Integer::sum);
   }
 
   // Check with boolean whether the list is empty or not
@@ -70,7 +64,9 @@ public class Cart {
       cartItems.clear();
     } catch (Exception e) {
       System.out.println("값이 비어있습니다. \n");
-      throw new RuntimeException(); // 아마 null 에러가 뜰 것임. 근데 애초에 아닐 거라서 안 뜰거긴 한데 !!..
+      throw new RuntimeException();
+      // "null error" occurs when the shopping cart is empty.
+      // However, the error does not occur because it is initialized after checking null in the first place.
     }
   }
 
@@ -80,16 +76,15 @@ public class Cart {
       Output.printOutput("장바구니가 비어 있었습니다. \n");
       throw new RuntimeException();
     } else {
-      // 카트에 템이 있으면 그걸 비교해서 없애겠다.
       try{
         CartItem find = cartItems.stream()
-                .filter(cartItem -> cartItem.getCartItemName().equals(text)).findAny().orElseThrow();
-        cartItems.remove(find);
+                .filter(cartItem -> cartItem.getCartItemName().equals(text))
+                .findAny().orElseThrow(); // NoSuchElementException Error -> If there is no equal value, the corresponding error occurs
         Output.printOutput(text+"가 장바구니에서 삭제되었습니다.\n[ Main Menu ] 로 돌아갑니다. \n");
-      } catch (Exception e) {
+      } catch (NoSuchElementException e) {
         Output.printOutput("장바구니에 있는 메뉴를 입력하셔야 합니다. \n[ Main Menu ] 로 돌아갑니다. \n");
+        throw new RuntimeException();
       }
-
     }
   }
 }
