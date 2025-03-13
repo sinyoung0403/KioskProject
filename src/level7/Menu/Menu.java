@@ -27,6 +27,7 @@ public class Menu {
     return this.categoryName;
   }
 
+  /* ✔ Requirements 기존에 생성한 Menu 의 MenuItem 을 조회 할 때 스트림을 사용하여 출력하도록 수정 */
   // Show list sequentially
   public void showMenuItems() {
     AtomicInteger index = new AtomicInteger(1);

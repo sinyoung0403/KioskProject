@@ -1,5 +1,7 @@
 package level7;
 
+/* ✔ Requirements Enum 을 활용한 사용자 유형별 할인율 관리하기 */
+/* ✔ Requirements 사용자 유형의 Enum 정의 및 각 사용자 유형에 따른 할인율 적용 */
 public enum Discount {
   VETERAN(1, "국가유공자", 0.9),
   SOLDIER(2, "군인", 0.95),

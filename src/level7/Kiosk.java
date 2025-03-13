@@ -21,7 +21,7 @@ public class Kiosk {
 
   // init Menu & MenuItems
   private List<Menu> initMenus() {
-    // Menu 카테고리 이름 설정
+    /* Menu */
     Menu burger = new Menu("Burger \uD83C\uDF54");
     Menu drink = new Menu("Drink \uD83E\uDD64");
     Menu desert = new Menu("Desert \uD83C\uDF5F");
@@ -137,8 +137,9 @@ public class Kiosk {
     Output.printOutput("0. 뒤로가기.");
   }
 
-  /* Determines whether to finalize the order, remove a specific menu item,
-   or return to the menu screen in the final ordering stage */
+  /* ✔ Requirements 주문 기능 */
+  // Determines whether to finalize the order, remove a specific menu item,
+  // or return to the menu screen in the final ordering stage
   // 최종 주문 단계에서 주문을 확정할지, 특정 메뉴를 삭제할지, 메뉴판으로 돌아갈지 결정하는 역할을 하는 함수
   public void confirmOrReturn(Cart cart) {
     cart.showCartItems();
@@ -148,7 +149,7 @@ public class Kiosk {
       case 1 -> {
         int discountPrice = determineDiscount(cart);
         if (discountPrice > 0) {
-          Output.printfStringOutput("주문이 완료되었습니다.", "총 금액: " + discountPrice);
+          Output.printfStringOutput("주문이 완료되었습니다.", "총 금액: " + discountPrice +" | 할인금액: " + (cart.getTotalPrice()-discountPrice));
           cart.clearCartItems();
         }
       }
@@ -159,7 +160,8 @@ public class Kiosk {
         cart.removeCartItems();
       }
       default -> {
-        Output.printOutput("범위 밖입니다.");
+        Output.printOutOfRange();
+        Output.printReturn();
         confirmOrReturn(cart);
         return;
       }
@@ -167,25 +169,31 @@ public class Kiosk {
     Output.printMainBack();
   }
 
+  /* ✔ Requirements: 주문 시, 사용자 유형에 맞는 할인율 적용해 총 금액 계산 / 장바구니 출력 및 금액 계산 */
   // Determines the applicable discount based on given enumType
   // 할인을 결정해주는 함수
   public int determineDiscount(Cart cart) {
     // Enum 을 통하여 각 Type 별로 포맷팅한 Spring 을 출력
+    Output.printLineDivider();
+    Output.printOutput("할인 유형을 선택해주세요");
     AtomicInteger index = new AtomicInteger(1);
     Arrays.stream(Discount.values())
             .map(values -> String.format("%d. %s | %d %%", index.getAndIncrement(), values.getUserType(), values.getPercent()))
             .forEach(System.out::println);
+
     // 입력 값과 같은 Type 을 반환. 같지 않을 경우 예외 처리
     int orderDiscount = Input.getInput();
-    Optional<Discount> enumDiscount = Arrays.stream(Discount.values()) // Create all listed objects in the list of enumerated objects
-            .filter(discount -> discount.getType() == orderDiscount)
+    Optional<Discount> enumDiscount = Arrays.stream(Discount.values())
+            .filter(discount -> discount.getType() == orderDiscount) // 값이 같은 걸 찾기
             .findAny();
     if (enumDiscount.isPresent()) {
       Output.printOutput(enumDiscount.get().getUserType() + " 은/는 " + enumDiscount.get().getPercent() + "% 의 할인율이 적용됩니다.");
       return (int) (enumDiscount.get().getRate() * cart.getTotalPrice());
     } else {
       Output.printOutOfRange();
-      return -1;
+      Output.printReturn();
+      int result = determineDiscount(cart);
+      return result;
     }
   }
 
@@ -205,7 +213,7 @@ public class Kiosk {
     boolean isDisplaySelectedMenu = menu.displaySelectedMenu(orderMenuItem - 1);
 
     if (!isDisplaySelectedMenu) {
-      Output.printOutput("다시 재입력 해주세요.");
+      Output.printReturn();
       processSubMenuSelection(menu, cart);
       return;
     }
@@ -214,6 +222,7 @@ public class Kiosk {
     Output.printMainBack();
   }
 
+  /* ✔ Requirements 장바구니 담기 기능 / 장바구니 생성 및 관리 기능 */
   // Processes the shopping cart based on user input
   //사용자 입력을 받아 장바구니 처리하는 함수 (전반적인 흐름을 담당)
   public void processCartInput(Menu menu, int orderMenuItem, Cart cart) {
@@ -226,7 +235,7 @@ public class Kiosk {
       case 2 -> Output.printOutput("장바구니에 담지 않았습니다.");
       default -> {
         Output.printOutOfRange();
-        Output.printOutput("다시 재입력 해주세요.");
+        Output.printReturn();
         processCartInput(menu, orderMenuItem, cart);
       }
     }
