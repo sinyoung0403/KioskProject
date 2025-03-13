@@ -1,4 +1,6 @@
-|          📱 Kiosk Project 📱          |  
+
+
+|          Kiosk Project          |  
 |:-------------------------------------:|
 | <img src="https://github.com/user-attachments/assets/6d48f3cc-b8d9-46f1-91bb-ae2b599fe4ce" alt="image" width="300"> |
 
@@ -21,68 +23,18 @@
 
 ## 1. 프로젝트 이름
 
-- **" Kiosk Project "**
+**" Kiosk Project "**
 
 ## 2. 프로젝트 소개
 
 - 해당 프로젝트는 사용자의 입력을 받아 주문을 처리하는 Kiosk Java Project 입니다.
 
-## 3. 프로젝트 패키지 설명 음 'ㅡ' .. 이 설명이 뒤로 가야하나 ..
+## 3. 주요 프로젝트 패키지
 
-### 1) `level1` 패키지
-
-- [필수] level1 을 구현한 패키지입니다. 
-- src/level1/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
-- `Main.java`: 키오스크 역할을 담당하고, 실행하는 클래스
-
-### 2) `level2` 패키지
-
-- [필수] level2 을 구현한 패키지입니다.
-- src/level2/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
-- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크 역할을 담당하고 실행하는 클래스
-- `MenuItem`: MenuItem 을 관리하는 클래스
-
-### 3) `level3` 패키지
-
-- [필수] level3 을 구현한 패키지입니다.
-- src/level3/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
-- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크를 실행하는 클래스
-- `MenuItem`: MenuItem 을 관리하는 클래스
-- `Kiosk`: 키오스크 역할을 담당하는 클래스
-
-### 4) `level4` 패키지
-
-- [필수] level4 을 구현한 패키지입니다.
-- src/level4/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
-- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크를 실행하는 클래스
-- `Menu.java`: Menu 를 관리하는 클래스
-- `MenuItem`: MenuItem 을 관리하는 클래스
-- `Kiosk`: 키오스크 역할을 담당하는 클래스
-
-### 5) `level5` 패키지
-
-- [필수] level5 을 구현한 패키지입니다.
-- src/level5/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
-- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크를 실행하는 클래스
-- `Menu.java`: Menu 를 관리하는 클래스
-- `MenuItem`: MenuItem 을 관리하는 클래스
-- `Kiosk`: 키오스크 역할을 담당하는 클래스
-
-### 6) `level6` 패키지
-
-- [도전] level1 을 구현한 패키지입니다.
-- src/level6/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
-- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크를 실행하는 클래스
-- `Menu.java`: Menu 를 관리하는 클래스
-- `MenuItem`: MenuItem 을 관리하는 클래스
-- `Cart.java`: 장바구니 를 관리하는 클래스
-- `CartItem`: 장바구니 속 MenuItem 을 관리하는 클래스
-- `Kiosk`: 키오스크 역할을 담당하는 클래스
-
-### 7) `level7` 패키지
+### 1) `level7` 패키지
 
 - [도전] level2 을 구현한 패키지입니다.
-- src/level7/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
+- **src/level7/Main.java** 를 실행 시키면 키오스크를 실행할 수 있습니다.
 - `Main.java`: 키오스크를 실행하는 클래스
 - `Menu.java`: Menu 를 관리하는 클래스
 - `MenuItem`: MenuItem 을 관리하는 클래스
@@ -91,7 +43,7 @@
 - `Kiosk`: Menu 정보를 담고 있으며, 키오스크 역할을 담당하는 클래스
 - `Discount`: `Eunm` 을 활용하여 사용자별 Discount Type 을 담고 있는 클래스
 
-### 8) `io` 패키지
+### 2) `io` 패키지
 
 - `Input`: 입력을 담당하는 클래스
 - `Output`: 출력을 담당하는 클래스
@@ -99,6 +51,8 @@
 ----
 
 # 🌟 프로젝트의 주요 기능
+
+## `level7` 패키지 를 중심으로 설명했습니다.
 
 ### 1) 메뉴 관리
 
@@ -125,8 +79,8 @@
 
 # 📑 요구사항
 
-
 ## [ 🐣 필수 기능 🐣 ] 
+
 ### Lv 1. 기본적인 키오스크 프로그래밍 
 
 #### 1) Scanner 를 활용한 입력
@@ -214,9 +168,9 @@
 
 #### 2) 람다/스트림을 활용한 장바구니 조회 기능 여부
 
-- `Menu.java` 클래스에서 `showMenuItems()` 함수를 이용하여 리스트를 순차적으로 조회하는 함수 구현
-- 
-
+- `Menu.java` 클래스에서 `showMenuItems()` 함수를 이용하여 리스트를 순차적으로 조회
+- `Kiosk.java` 클래스에서 `determineDiscount()` 함수를 이용하여 `enum Type`을 순차적으로 조회
+- `Cart.java` 클래스에서 `removeCartItems()` 함수를 이용하여 장바구니에서 특정 메뉴 빼기 기능
 
 ---
 
@@ -228,32 +182,28 @@
 ### 🛒 `Cart.java`
 
 #### 1. 필드
-- `cartItems` : `cartItem` 객체들을 담는 List;
+- `Map<String, CartItem> cartItemMap`: 장바구니에 담긴 메뉴 아이템과 수량을 관리하는 맵.
 
-#### 2. 장바구니에 메뉴 추가 (`addCartItems(MenuItem menuItem)`)
-- 선택한 `MenuItem`을 `CartItem`으로 변환하여 장바구니에 추가
-- 같은 메뉴가 이미 있을 경우 수량 증가, 없으면 새로 추가
-- 추가되거나 수량이 증가하면 출력 메시지 표시
+#### 2. `addCartItems(MenuItem menuItem)`
+- 메뉴 항목을 장바구니에 추가.
+- 이미 장바구니에 있으면 수량만 추가, 없으면 새로 추가.
 
-#### 3. 장바구니 내역 출력 (`showCartItems()`)
-- 현재 장바구니에 담긴 모든 항목의 "이름, 가격, 수량"을 출력
-- 총 가격도 함께 출력.
+#### 3. `showCartItems()`
+- 장바구니의 모든 아이템을 출력.
+- 각 메뉴 이름, 가격, 수량을 출력하고 총 금액도 계산하여 표시.
 
-#### 4. 총 가격 계산 (`getTotalPrice()`)
-- 장바구니에 담긴 모든 항목의 "가격 × 수량"을 합산하여 반환
+#### 4. `getTotalPrice()`
+- 장바구니에 담긴 모든 아이템의 총 가격을 계산
 
-#### 5. 장바구니가 비어있는지 확인 (`isCartNotEmpty()`)
+#### 5. `isCartNotEmpty()`
 - 장바구니가 비어 있지 않으면 `true`, 비어 있으면 `false` 반환
 
-#### 6. 장바구니 초기화 (`clearCartItems()`)
-- 장바구니를 비움
+#### 6. `clearCartItems()`
+- 장바구니를 비우는 기능
 
-#### 7. 장바구니에서 특정 메뉴 삭제 (`removeCartItems()`)
-- 사용자 입력을 받아 해당 메뉴 삭제
-  - 장바구니가 비었을 경우 메시지 출력
-  - `'0'`을 입력하면 삭제 취소
-- 장바구니에 없는 메뉴를 입력하면 재입력 요청
-
+#### 7. `removeCartItems()`
+- 장바구니에서 특정 메뉴를 삭제.
+- 메뉴가 없으면 재입력 요청.
 
 ### 🛒 `CartItem.java`
 
@@ -330,43 +280,26 @@
 
 ### 📱 **`Kiosk.java`**
 
-#### 1. 필드
-- `menus`: 메뉴 카테고리 목록 (버거, 음료, 디저트 등)
+#### 1.필드
+- `menus` (List<Menu>): 메뉴 목록을 저장하는 리스트.
 
 #### 2. 생성자
-- `Kiosk()`: `initMenus()` 메서드를 호출하여 메뉴 카테고리와 아이템 초기화
+- `Kiosk()`: `menus` 필드를 초기화하는 생성자. `initMenus()` 메서드를 호출하여 메뉴들을 초기화합니다.
 
-#### 3. 메뉴 초기화 (`initMenus()`)
-- 메뉴 카테고리 생성: 버거, 음료, 디저트 카테고리를 생성하고 각 카테고리에 해당하는 메뉴 아이템을 추가
+#### 3. 메서드
 
-#### 4. 주요 기능
-- 메인 메뉴 화면 (`showMainMenu()`)
-  - 사용자에게 카테고리 목록을 출력
-  - 장바구니가 비어 있지 않으면 '주문'과 '취소' 메뉴 제공
+- `initMenus()`: 기본 메뉴와 메뉴 항목을 초기화하여 `menus` 리스트를 반환.
+- `start()`: 키오스크 메인 루프. 사용자 입력을 받아 메인 메뉴와 서브 메뉴를 처리.
+- `showAllCategory()`: 모든 메뉴 카테고리를 출력.
+- `getSpecificMenus(Integer index)`: 인덱스를 받아 특정 메뉴를 반환.
+- `getSpecificMenuItem(Menu menu, Integer index)`: 특정 메뉴의 항목을 반환.
+- `showMainMenu(Cart cart, Menu menu)`: 메인 메뉴를 출력. 장바구니 상태에 따라 출력 항목이 달라짐.
+- `showSubMenu(Menu menu)`: 선택한 메뉴의 서브 메뉴를 출력.
+- `confirmOrReturn(Cart cart)`: 장바구니에서 주문을 확정하거나, 메뉴로 돌아가거나, 항목을 삭제할 수 있는 기능.
+- `determineDiscount(Cart cart)`: 사용자 유형에 맞는 할인율을 적용하고 최종 금액을 계산.
+- `processSubMenuSelection(Menu menu, Cart cart)`: 서브 메뉴에서 항목을 선택하고 장바구니에 추가하는 처리.
+- `processCartInput(Menu menu, int orderMenuItem, Cart cart)`: 장바구니에 메뉴 항목을 추가할지 결정하는 함수.
 
-- 서브 메뉴 화면 (`showSubMenu()`)
-  - 선택된 메뉴의 항목들을 출력하고 사용자가 메뉴를 선택하도록 유도
-
--  장바구니 처리 (`processCartInput()`)
-   - 사용자가 메뉴를 장바구니에 추가할 것인지 확인
-   - 추가할 경우 장바구니에 메뉴를 추가하고, 취소할 경우 추가하지 않음
-
-- 주문 최종 확인 (`confirmOrReturn()`)
-  - 장바구니에 담긴 아이템을 보여주고, 주문을 확정할지, 장바구니에서 삭제할지, 메뉴로 돌아갈지 선택하도록 유도
-
-- 할인 처리 (`determineDiscount()`)
-  - 사용자가 입력한 할인 타입에 따라 적용할 할인률을 계산
-
-- 서브 메뉴 항목 선택 (`processSubMenuSelection()`)
-  - 서브 메뉴에서 특정 메뉴 항목을 선택하고 장바구니에 추가할 수 있도록 처리.
-
-- 장바구니 비우기 (`clearCartItems()`)
-  - 장바구니를 비우는 기능 제공
-
-#### 5. 보조 기능
-- `showAllCategory()`: 전체 카테고리 목록을 출력
-- `getSpecificMenus()`: 특정 메뉴 카테고리 반환
-- `getSpecificMenuItem()`: 특정 메뉴 항목 반환
 
 ### 💸 **`Dicount.java`** - enum
 
@@ -420,6 +353,62 @@
 - 사용자는 장바구니를 비우거나 특정 항목을 삭제할 수 있습니다.
 
 ---
+
+# 다른 패키지 설명
+
+### 1) `level1` 패키지
+
+- [필수] level1 을 구현한 패키지입니다.
+- src/level1/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
+- `Main.java`: 키오스크 역할을 담당하고, 실행하는 클래스
+
+### 2) `level2` 패키지
+
+- [필수] level2 을 구현한 패키지입니다.
+- src/level2/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
+- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크 역할을 담당하고 실행하는 클래스
+- `MenuItem`: MenuItem 을 관리하는 클래스
+
+### 3) `level3` 패키지
+
+- [필수] level3 을 구현한 패키지입니다.
+- src/level3/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
+- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크를 실행하는 클래스
+- `MenuItem`: MenuItem 을 관리하는 클래스
+- `Kiosk`: 키오스크 역할을 담당하는 클래스
+
+### 4) `level4` 패키지
+
+- [필수] level4 을 구현한 패키지입니다.
+- src/level4/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
+- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크를 실행하는 클래스
+- `Menu.java`: Menu 를 관리하는 클래스
+- `MenuItem`: MenuItem 을 관리하는 클래스
+- `Kiosk`: 키오스크 역할을 담당하는 클래스
+
+### 5) `level5` 패키지
+
+- [필수] level5 을 구현한 패키지입니다.
+- src/level5/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
+- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크를 실행하는 클래스
+- `Menu.java`: Menu 를 관리하는 클래스
+- `MenuItem`: MenuItem 을 관리하는 클래스
+- `Kiosk`: 키오스크 역할을 담당하는 클래스
+
+### 6) `level6` 패키지
+
+- [도전] level1 을 구현한 패키지입니다.
+- src/level6/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
+- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크를 실행하는 클래스
+- `Menu.java`: Menu 를 관리하는 클래스
+- `MenuItem`: MenuItem 을 관리하는 클래스
+- `Cart.java`: 장바구니 를 관리하는 클래스
+- `CartItem`: 장바구니 속 MenuItem 을 관리하는 클래스
+- `Kiosk`: 키오스크 역할을 담당하는 클래스
+
+
+---
+
 
 ## 📚 Stacks
 
