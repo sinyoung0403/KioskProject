@@ -31,20 +31,20 @@
 
 ### 1) `level1` 패키지
 
-- level1 을 구현한 패키지입니다. 
+- [필수] level1 을 구현한 패키지입니다. 
 - src/level1/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
 - `Main.java`: 키오스크 역할을 담당하고, **실행하는 클래스**
 
 ### 2) `level2` 패키지
 
-- level2 을 구현한 패키지입니다.
+- [필수] level2 을 구현한 패키지입니다.
 - src/level2/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
 - `Main.java`: 메뉴 정보를 담고 있으며, 키오스크 역할을 담당하고 **실행하는 클래스**
 - `MenuItem`: MenuItem 을 관리하는 클래스
 
 ### 3) `level3` 패키지
 
-- level3 을 구현한 패키지입니다.
+- [필수] level3 을 구현한 패키지입니다.
 - src/level3/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
 - `Main.java`: 메뉴 정보를 담고 있으며, **키오스크를 실행하는 클래스**
 - `MenuItem`: MenuItem 을 관리하는 클래스
@@ -52,7 +52,7 @@
 
 ### 4) `level4` 패키지
 
-- level4 을 구현한 패키지입니다.
+- [필수] level4 을 구현한 패키지입니다.
 - src/level4/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
 - `Main.java`: 메뉴 정보를 담고 있으며, **키오스크를 실행하는 클래스**
 - `Menu.java`: Menu 를 관리하는 클래스
@@ -61,7 +61,7 @@
 
 ### 5) `level5` 패키지
 
-- level5 을 구현한 패키지입니다.
+- [필수] level5 을 구현한 패키지입니다.
 - src/level5/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
 - `Main.java`: 메뉴 정보를 담고 있으며, **키오스크를 실행하는 클래스**
 - `Menu.java`: Menu 를 관리하는 클래스
@@ -70,7 +70,7 @@
 
 ### 6) `level6` 패키지
 
-- level6 을 구현한 패키지입니다.
+- [도전] level1 을 구현한 패키지입니다.
 - src/level6/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
 - `Main.java`: 메뉴 정보를 담고 있으며, **키오스크를 실행하는 클래스**
 - `Menu.java`: Menu 를 관리하는 클래스
@@ -81,7 +81,7 @@
 
 ### 7) `level7` 패키지
 
-- level7 을 구현한 패키지입니다.
+- [도전] level2 을 구현한 패키지입니다.
 - src/level7/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
 - `Main.java`: 키오스크를 실행하는 클래스
 - `Menu.java`: Menu 를 관리하는 클래스
@@ -98,18 +98,26 @@
 
 ## 4. 프로젝트의 주요 기능
 
-### 1) 주문 기능
+### 1) 메뉴 관리:
 
-- 사용자의 입력을 통해 햄버거, 음료, 디저트 별 주문이 가능하다.
-- 장바구니에 담긴 Menu 를 통하여 최종 주문이 가능하다.
+- 키오스크는 Menu와 MenuItem을 사용하여 다양한 카테고리(버거, 음료, 디저트)에 속하는 메뉴 항목들을 제공합니다.
 
-### 2) 장바구니 기능
+### 2) 장바구니 관리:
 
-- 사용자가 주문한 Menu 를 장바구니에 저장, 삭제가 가능하다.
+- 사용자는 원하는 메뉴를 장바구니에 추가하거나 삭제할 수 있으며, 장바구니에서 주문을 확인하고 최종 결제를 처리할 수 있습니다.
 
-### 3) 할인 기능
+### 3) 주문 및 결제:
 
-- 사용자에 따라 다른 할인율을 적용하여 주문 가능하다.
+- 주문은 메뉴 항목을 선택하여 장바구니에 추가하는 방식으로 이루어지며, 최종적으로 사용자는 장바구니의 항목들을 확인하고 결제할 수 있습니다.
+
+### 4) 할인 적용:
+
+- 주문을 결제할 때, 사용자가 선택한 할인 유형(국가유공자, 군인, 학생 등)에 맞춰 할인율을 적용합니다. 
+- 할인율은 Discount Enum을 사용하여 적용됩니다.
+
+### 5) 입력/출력:
+
+- 시스템은 Input 클래스를 통해 사용자 입력을 받으며, Output 클래스를 통해 시스템의 상태나 결과를 출력합니다.
 
 ---
 
@@ -175,223 +183,238 @@
 - `addMenuItems()` 등 여러 개의 `Setter` 함수 생성
 
 
-## [ 🐔 필수 기능 🐔 ]
+## [ 🐔 도전 기능 🐔 ]
 
-### [도전] Lv 1. 장바구니 및 구매하기 기능 추가
+### Lv 1. 장바구니 및 구매하기 기능 추가
 
 #### 1) 장바구니 기능 추가 여부
 
+- `Cart.java` 를 통하여 장바구니 객체 관리
+- `CartItem.java` 를 통하여 장바구니이 포함된 `item` 객체 관리 
 
 #### 2) 주문 흐름 동작 여부
 
-- 
+- [메인메뉴] ➡ [메인메뉴 선택] ➡ [서브메뉴] ➡ [서브메뉴 선택] ➡ [장바구니 추가 여부] ➡ [장바구니 추가] 
+- [메인메뉴] ➡ [장바구니 확인] ➡ [주문하기] ➡ [장바구니 초기화]
 
 #### 3) 잘못된 입력값에 대한 예외처리 여부
 
--
+- `IndexOutOfBoundsException`: 범위 밖의 값을 받았을 경우 예외 발생 
+- `cart.cartItemsNotEmpty()` : 장바구니가 없을 경우 Main Menu 에서 접근 불가
+- `InputMismatchException`, `NullPointerException`, `NumberFormatException`: `Input.java` 클래스에서 재귀 
+
+### Lv 2. Enum, 람다 & 스트림을 활용한 주문 및 장바구니 관리
+
+#### 1) Enum 을 활용한 사용자 유형별 할인율 관리 여부
+
+- `Discount.java` 에서 `enum`을 관리
+- `Kiosk.java` 에서 `enum`을 활용하여 사용자 유형별 할인율 관리
+
+#### 2) 람다/스트림을 활용한 장바구니 조회 기능 여부
+
+- `Menu.java` 클래스에서 `showMenuItems()` 함수를 이용하여 리스트를 순차적으로 조회하는 함수 구현
+- 
+
 
 ---
 
-## 📂 buttonListener
 
-✔ `ButtonFunctionListener`
+**"도전과제 Lv.2 를 기준으로 작성되었습니다."**
 
-1. ◀ (Back):
+## 📂 Cart
 
-- 입력값이 비어있지 않으면 마지막 입력값을 제거하고, presentLabel에 업데이트
-- CalculatorList가 비어있을 경우, removeInputNumber()로 입력값만 제거
+### 🛒 `Cart.java`
 
-2. C (Clear):
+#### 1. 필드
+- `cartItems` : `cartItem` 객체들을 담는 List;
 
-- 모든 값 초기화 (clearInputNumber(), clearCalculatorList(), clearStepText())
-- 초기화 후 stateLabel, presentLabel에 업데이트된 상태 반영
+#### 2. 장바구니에 메뉴 추가 (`addCartItems(MenuItem menuItem)`)
+- 선택한 `MenuItem`을 `CartItem`으로 변환하여 장바구니에 추가
+- 같은 메뉴가 이미 있을 경우 수량 증가, 없으면 새로 추가
+- 추가되거나 수량이 증가하면 출력 메시지 표시
 
-3. CE (Clear Entry):
+#### 3. 장바구니 내역 출력 (`showCartItems()`)
+- 현재 장바구니에 담긴 모든 항목의 **이름, 가격, 수량**을 출력
+- 총 가격도 함께 출력.
 
-- 현재 입력값만 초기화하고, presentLabel에 반영
+#### 4. 총 가격 계산 (`getTotalPrice()`)
+- 장바구니에 담긴 모든 항목의 **가격 × 수량**을 합산하여 반환
 
-4. Big:
-- 입력값보다 큰 값들을 출력하는 기능
-- saveResultList에서 현재 입력값보다 큰 값들을 필터링하여 보여줌
-- 값이 없거나 saveResultList가 비어있을 경우 에러 메시지 출력
+#### 5. 장바구니가 비어있는지 확인 (`isCartNotEmpty()`)
+- 장바구니가 비어 있지 않으면 `true`, 비어 있으면 `false` 반환
 
-5. Del (Delete):
+#### 6. 장바구니 초기화 (`clearCartItems()`)
+- 장바구니를 비움
 
-- saveResultList에서 첫 번째 값을 삭제하고, 해당 결과를 myList에 재출력
-- 삭제된 값에 대한 알림 메시지 출력
-
-6. Negative:
-
-- 입력값이 음수가 아닌 경우 음수로 변경하여 presentLabel에 반영
-- 이미 음수인 값에는 에러 메시지 출력
-
-✔ `InputBtnClickListener`
-
-1. 숫자 버튼 (1~9, 0):
-
-- 버튼 클릭 시 해당 숫자를 입력값에 추가하고, label에 반영
-
-2. 소수점 (.):
-
-- 이미 소수점이 포함되어 있으면 에러 메시지를 출력
-- 소수점이 없다면 입력값에 소수점을 추가하고, label에 반영
-
-✔ `SymbolBtnClickListener`
-
-1. 등호 버튼 (=):
-
-- 현재 입력된 값이 비어 있으면 오류 메시지를 출력
-- 입력값이 있으면 계산을 수행하고, 결과를 화면에 표시
-- 연산 기록을 저장하고 계산 결과를 초기화
-
-2. 사칙연산 버튼 (➕, ➖, *, ➗):
-
-- 입력값이 없으면 오류 메시지 출력
-- 입력값이 있으면 사칙연산을 수행하고, 해당 연산기호를 연산 리스트에 추가
-- 계산 후 결과를 화면에 표시하고 연산 기록을 저장
+#### 7. 장바구니에서 특정 메뉴 삭제 (`removeCartItems()`)
+- 사용자 입력을 받아 해당 메뉴 삭제
+  - 장바구니가 비었을 경우 메시지 출력
+  - `'0'`을 입력하면 삭제 취소
+- 장바구니에 없는 메뉴를 입력하면 재입력 요청
 
 
-## 📂 logic
+### 🛒 `CartItem.java`
 
-✔ `Calculators`
+#### 1. 필드
+- `menuItem`: `MenuItem` 객체 (메뉴 항목)
+- `itemQuantity`: 항목의 수량, 기본값은 `1`
 
-1. 연산 기능 (ArithmeticCalculator)
+#### 2. 생성자
+- `CartItem(MenuItem menuItem)`: `MenuItem`을 받아 `menuItem` 필드 초기화
 
-- SUM(+): 더하기 연산 수행
-- SUBTRACT(-): 빼기 연산 수행
-- MULTIPLY(*): 곱하기 연산 수행
-- DIVIDE(/): 나누기 연산 수행 (0으로 나누면 ArithmeticException 발생 및 Swing Dialog 출력)
+#### 3. Getter 메서드
+- `getMenuItem()`: `MenuItem` 객체 반환
+- `getCartItemName()`: 메뉴 이름 반환
+- `getItemQuantity()`: 항목 수량 반환
 
-2. 타입 변환 (toBigDecimal, toType)
+#### 4. Setter 메서드
+- `addCartItemQuantity()`: 항목 수량 1 증가
 
-- toBigDecimal(T number): T 타입 숫자를 BigDecimal로 변환
-- toType(BigDecimal result): BigDecimal 값을 T 타입으로 변환
+#### 5. 장바구니 항목 출력 (`showAllCartItems()`)
+- **메뉴 이름, 가격, 설명, 수량**을 출력 형식에 맞춰 표시
 
-3. 숫자 설정 (setNum)
+----
 
-- 두 개의 숫자(num1, num2)를 설정하여 연산 준비
+## 📂 Menu
 
-✔ `CalculatorState`
+### 🍽️ `Menu.java` 
 
-1. 데이터 관리
+#### 1. 필드
+- `categoryName`: 메뉴 카테고리 이름.
+- `menuItems`: `MenuItem` 객체들을 담는 리스트.
 
-- calculatorList : 연산 대상 저장
-- stepString : 연산 과정 표시
-- inputString : 사용자 입력 값 저장
-- saveList : 전체 결과 저장
-- saveResultList : 연산 결과만 저장
+#### 2. 생성자
+- `Menu(String categoryName)`: 카테고리 이름을 받아 `categoryName` 필드 초기화.
 
-2. 값 설정 및 추가
+#### 3. Getter 메서드
+- `getMenuItems()`: `MenuItem` 객체들이 담긴 리스트 반환.
+- `getCategoryName()`: 메뉴 카테고리 이름 반환.
+- `showMenuItems()`: 메뉴 항목을 순차적으로 번호와 함께 출력.
 
-- add/setInputNumber(String number) : 입력값 추가/설정
-- addSaveList(String text) : 결과 저장
-- addSaveResultList(Double number) : 연산 결과 저장
-- addCalculatorList(S number) : 연산 대상 추가
+#### 4. 메뉴 선택 출력 (`displaySelectedMenu(Integer index)`)
+- 사용자가 선택한 메뉴 인덱스가 유효하면 **선택된 메뉴 출력**.
+- 유효하지 않으면 **범위 초과 메시지 출력**.
 
-3. 값 조회
+#### 5. Setter 메서드
+- `addMenuItems(MenuItem menuItem)`: 새로운 `MenuItem`을 메뉴에 추가.
 
-- getInputString() / getStepText() : 입력값 & 연산 과정 조회
-- getCalculatorList() / getSaveList() / getSaveResultList() : 저장된 데이터 조회
-- getCalculatorListSize() : 연산 대상 개수 반환
+### 🍔 `MenuItem.java`
 
+#### 1. 필드
+- `menuName`: 메뉴 이름
+- `menuPrice`: 메뉴 가격
+- `menuDescription`: 메뉴 설명
 
-4. 값 삭제 및 초기화
+#### 2. 생성자
+- `MenuItem(String menuName, Integer menuPrice, String menuDescription)`: 메뉴 이름, 가격, 설명을 받아 `menuName`, `menuPrice`, `menuDescription` 필드 초기화
 
-- clearInputNumber() / clearStepText() / clearCalculatorList() : 입력 & 과정 초기화
-- removeInputNumber() : 입력값 마지막 문자 삭제
-- removeSaveList(int index) / removeSaveResultList(int index) : 특정 저장값 삭제
+#### 3. Getter 메서드
+- `getMenuPrice()`: 메뉴 가격 반환.
+- `getMenuDescription()`: 메뉴 설명 반환.
+- `getMenuName()`: 메뉴 이름 반환.
 
-5. 라벨 수정
+#### 4. 메뉴 출력 형식 지정 (`menuFormatString(boolean gap)`)
+- `gap = true`: 일정한 간격을 주어 메뉴 이름, 가격, 설명 출력 
+- `gap = false`: 간격 없이 메뉴 이름, 가격, 설명을 출력
 
-- insertLabel(JLabel label, String text) : UI 라벨 업데이트
+----
 
---------------------
+## 📂 etc
 
-## 📂 swingui
+### ⚡ `Main.java`
 
-✔ `swingUI`
+- `Kiosk` 를 실행시켜주는 클래스
 
-1. UI 구성 요소
-- 프레임: 계산기 창 생성 및 설정
-- 패널: 버튼 및 레이블을 포함하는 컨테이너
-- 라벨: stateLabel (계산 과정), presentLabel (입력값), myList (저장된 값) 표시
-- 버튼:
-    - 연산 버튼: sumBtn, subtractBtn, multiplyBtn, divideBtn, equalBtn
-    - 숫자 버튼: btn0 ~ btn9, pointBtn
-    - 기타 버튼: ceBtn, cBtn, backBtn, negativeBtn, delBtn, viewBtn
+### 📱 `Kiosk.java`
 
-2. 버튼 클릭 리스너
+#### 1. 필드
+- **`menus`**: 메뉴 카테고리 목록 (버거, 음료, 디저트 등)
 
--숫자 및 점 버튼: InputBtnClickListener → 입력값 처리
--연산 버튼: SymbolBtnClickListener → 연산 수행 및 계산 처리
--기타 버튼: ButtonFunctionListener → 지우기, 뒤로가기 등 기능 처리
+#### 2. 생성자
+- `Kiosk()`: `initMenus()` 메서드를 호출하여 메뉴 카테고리와 아이템 초기화
 
-3. 레이아웃 설정
+#### 3. 메뉴 초기화 (`initMenus()`)
+- **메뉴 카테고리 생성**: 버거, 음료, 디저트 카테고리를 생성하고 각 카테고리에 해당하는 메뉴 아이템을 추가
 
-- 프레임 크기: 460x540
-- 버튼 배치: setBounds()로 버튼 위치 및 크기 설정
-- 프레임 표시: frame.setVisible(true)로 화면에 출력
+#### 4. 주요 기능
+- 메인 메뉴 화면 (`showMainMenu()`)
+  - 사용자에게 카테고리 목록을 출력
+  - 장바구니가 비어 있지 않으면 '주문'과 '취소' 메뉴 제공
 
-✔ `SwingOutput`
+- 서브 메뉴 화면 (`showSubMenu()`)
+  - 선택된 메뉴의 항목들을 출력하고 사용자가 메뉴를 선택하도록 유도
 
-1. Error Dialog 출력
+-  장바구니 처리 (`processCartInput()`)
+   - 사용자가 메뉴를 장바구니에 추가할 것인지 확인
+   - 추가할 경우 장바구니에 메뉴를 추가하고, 취소할 경우 추가하지 않음
 
-2. 안내문 출력
+- 주문 최종 확인 (`confirmOrReturn()`)
+  - 장바구니에 담긴 아이템을 보여주고, 주문을 확정할지, 장바구니에서 삭제할지, 메뉴로 돌아갈지 선택하도록 유도
+
+- 할인 처리 (`determineDiscount()`)
+  - 사용자가 입력한 할인 타입에 따라 적용할 할인률을 계산
+
+- 서브 메뉴 항목 선택 (`processSubMenuSelection()`)
+  - 서브 메뉴에서 특정 메뉴 항목을 선택하고 장바구니에 추가할 수 있도록 처리.
+
+- 장바구니 비우기 (`clearCartItems()`)
+  - 장바구니를 비우는 기능 제공
+
+#### 5. 보조 기능
+- `showAllCategory()`: 전체 카테고리 목록을 출력
+- `getSpecificMenus()`: 특정 메뉴 카테고리 반환
+- `getSpecificMenuItem()`: 특정 메뉴 항목 반환
+
+### 💸 `Dicount.java` - enum
+
+#### 1. 필드
+- `userType`: 할인 대상의 사용자 유형 (예: 국가유공자, 군인, 학생, 일반인).
+- `type`: 할인 대상의 유형 번호.
+- `rate`: 할인율 (예: 0.9는 10% 할인).
+
+#### 2. 생성자
+- `Discount(int type, String userType, Double rate)`: 할인 정보를 초기화하는 생성자
+
+#### 3. 메서드
+- `getUserType()`: 할인 대상의 사용자 유형을 반환
+- `getRate()`: 할인율을 반환
+- `getType()`: 할인 유형 번호를 반환
+- `getPercent()`: 할인율을 백분율로 계산하여 반환
+
 
 ---
 
 ## ️️🪢 데이터 흐름 (Data Flow)
 
-1. 사용자 입력 (Swing UI)
+### 1. Kiosk 객체 생성 및 시작 (main() 메서드):
 
-✔ 사용자가 **Swing UI**에서 버튼을 클릭하여 연산을 수행합니다.
-- 숫자, 연산자, 기타 버튼 클릭
+- Kiosk 클래스의 start() 메서드가 호출되면서 키오스크 시스템이 시작됩니다.
 
-2. 버튼 클릭 리스너 (Button Click Listeners)
+### 2. 메뉴 초기화 (initMenus()):
 
-✔ 버튼 클릭에 따라 각기 다른 리스너가 호출됩니다:
-- `InputBtnClickListener`: 숫자 클릭 시 처리
-- `SymbolBtnClickListener`: 사칙연산 연산자 처리 (예: +, -, *, /)
-- `ButtonFunctionListener`: 삭제 및 백스페이스 처리 (연산 결과 삭제)
+- Kiosk 클래스는 initMenus() 메서드에서 각 메뉴 카테고리 (버거, 음료, 디저트)를 초기화하고, 각 카테고리에는 여러 메뉴 항목이 추가됩니다.
 
-3. 연산 요청 처리 (Calculation Request)
+### 3. 메인 메뉴 출력 및 사용자 입력 처리 (start() 메서드):
 
-✔ **Calculator 클래스**에서 연산을 수행합니다.
-- Enum 타입(`Operator`)을 사용하여 연산자 처리
-- 제네릭을 사용하여 다양한 타입의 값을 연산
-- `ArithmeticCalculator`에서 계산을 처리하고 결과를 컬렉션에 저장
+- 메인 메뉴가 출력되고, 사용자는 카테고리를 선택합니다.
+선택한 카테고리별로 해당 메뉴 항목이 출력되며, 사용자는 원하는 메뉴를 장바구니에 추가하거나 취소할 수 있습니다.
 
-4. 계산 결과 저장 (Calculation Results Storage)
+### 4. 하위 메뉴 처리 (processSubMenuSelection()):
 
-✔ **CalculatorsState** 클래스의 컬렉션 필드에 연산 결과를 저장합니다.
-- 캡슐화 되어 있어, 직접 접근할 수 없고 **getter**와 **setter** 메서드를 통해 간접 접근
+- 사용자가 메뉴 항목을 선택하면 해당 항목을 장바구니에 추가할지 취소할지 결정합니다.
 
-5. 결과 출력 (Output)
+### 5. 장바구니 확인 및 최종 주문 처리 (confirmOrReturn()):
 
-✔ 계산된 결과는 **Swing UI**의 라벨을 통해 화면에 표시됩니다.
-- **CalculatorState**의 `insertLabel` 메서드를 통해 **Swing UI** 의 라벨 조작
+- 사용자가 장바구니를 확인하고 주문을 최종적으로 확정하거나 취소할 수 있습니다.
+주문 확정 시, 할인 적용 여부가 결정됩니다.
 
-6. 연산 결과 삭제 (Delete Calculation)
+### 6. 할인 적용 (determineDiscount()):
 
-✔ ButtonFunctionListener 클래스의 `actionPerformed` 메서드가 가장 먼저 저장된 연산 결과를 **CalculatorsState** 클래스에서 삭제
-- 삭제 기능은 `removeSaveList()`와 `removeResultSaveList()` 메서드를 통해 처리
+- 사용자가 선택한 할인 종류에 따라 할인율이 적용되며, 해당 할인율에 맞춰 최종 가격이 계산됩니다.
 
-7. 값 비교 및 출력 (Compare and Print Results)
+### 7. 장바구니 취소 및 비우기:
 
-✔ 사용자가 **Swing UI**를 통해 입력한 값보다 큰 계산 결과들을 출력
-- ButtonFunctionListener 클래스의 `actionPerformed` 메서드에서 사용하여 **Lambda**와 **Stream**을 활용하여 필터링하고 출력
-- 이 기능은 저장된 연산 결과 리스트에서 입력 받은 값보다 큰 결과값 들만 출력한다.
-
-
-### 📃 흐름 요약
-
-1. 사용자 입력 → **Swing UI**
-2. 버튼 클릭 → **InputBtnClickListener**, **SymbolBtnClickListener**, **ButtonFunctionListener**
-3. 연산 요청 → **Calculator** 클래스 (Enum, 제네릭 사용)
-4. 연산 결과 저장 → **CalculatorsState** (캡슐화된 컬렉션 필드)
-5. 결과 출력 → **Swing UI** (CalculatorState 통해 업데이트)
-6. 결과 삭제 → **ButtonFunctionListener** 클래스
-7. 값 비교 → **Lambda & Stream**을 활용하여 **Swing UI**로 입력된 값보다 큰 결과값 출력
+- 사용자는 장바구니를 비우거나 특정 항목을 삭제할 수 있습니다.
 
 ---
 
