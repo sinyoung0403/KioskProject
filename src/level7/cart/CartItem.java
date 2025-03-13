@@ -4,18 +4,16 @@ import io.Output;
 import level7.Menu.MenuItem;
 
 public class CartItem {
-  // Field  /  Menu item List를 주는 걸 고려.
-  // 의존성. //
+  /* Field */
   private final MenuItem menuItem;
   private Integer itemQuantity = 1;
 
-  // Constructor
+  /* Constructor */
   public CartItem(MenuItem menuItem) {
     this.menuItem = menuItem;
   }
 
-  /* Getter Start*/
-
+  /* Getter Start */
   public MenuItem getMenuItem() {
     return menuItem;
   }
@@ -27,7 +25,6 @@ public class CartItem {
   public Integer getItemQuantity() {
     return itemQuantity;
   }
-
   /* Getter Finish*/
 
   /* Setter Start */
@@ -39,7 +36,7 @@ public class CartItem {
 
   // Show All Cart Items (Name, Price, Description, Quantity)
   public void showAllCartItems() {
-    Output.printOutput("[ 총 수량: " + getItemQuantity() + " ] " + menuItem.getMenuName() + " | " + menuItem.getMenuPrice() + " 원 | " + menuItem.getMenuDescription());
+    Output.printOutput("[ 총 수량: " + getItemQuantity() + " ] " + menuItem.menuFormatString(false));
   }
 }
 

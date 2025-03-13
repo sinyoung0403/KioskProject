@@ -1,6 +1,5 @@
 package level7;
 
-// enum 만 분리.
 public enum Discount {
   VETERAN(1, "국가유공자", 0.9),
   SOLDIER(2, "군인", 0.95),

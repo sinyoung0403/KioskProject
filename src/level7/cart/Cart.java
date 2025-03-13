@@ -1,13 +1,10 @@
 package level7.cart;
 
+import io.Input;
 import io.Output;
 import level7.Menu.MenuItem;
 
 import java.util.*;
-
-/**
- *
- */
 
 public class Cart {
   private final List<CartItem> cartItems = new ArrayList<>();
@@ -67,21 +64,17 @@ public class Cart {
   }
 
   // remove a specific menu in Cart
-  public void removeCartItems(String text) {
+  public void removeCartItems() {
+    String text = Input.getString();
     if (!isCartNotEmpty()) {
       Output.printOutput("장바구니가 비어 있었습니다. \n");
       return;
     }
 
-//    Optional<CartItem> find = cartItems.stream()
-//            .filter(cartItem -> cartItem.getCartItemName().equals(text))
-//            .findAny();
-//    if (find.isPresent()) {
-//      cartItems.remove(find.get());
-//      Output.printOutput(text + "가 장바구니에서 삭제되었습니다.\n[ Main Menu ] 로 돌아갑니다. \n");
-//    } else {
-//      Output.printOutput("장바구니에 있는 메뉴를 입력하셔야 합니다. \n[ Main Menu ] 로 돌아갑니다. \n");
-//    }
+    if (text.trim().equals("0")) {
+      Output.printOutput("삭제를 취소합니다.");
+      return;
+    }
 
     cartItems.stream()
             .filter(cartItem -> cartItem.getCartItemName().equals(text.trim()))
@@ -89,6 +82,9 @@ public class Cart {
             .ifPresentOrElse((item) -> {
               cartItems.remove(item);
               Output.printOutput(text.trim() + " 가 장바구니에서 삭제되었습니다.");
-            }, () -> Output.printOutput("장바구니에 있는 메뉴를 입력하셔야 합니다."));
+            }, () -> {
+              Output.printOutput("장바구니에 있는 메뉴를 입력하셔야 합니다. 재입력 부탁드립니다.");
+              removeCartItems();
+            });
   }
 }

@@ -118,7 +118,6 @@ public class Kiosk {
 
   /* Calculation Logic Function */
   // Show MainMenu
-  // Main Menu 를 보여주는 함수
   public void showMainMenu(Cart cart, Menu menu) {
     Output.printOutput("[ Burger King | MAIN MENU ]");
     showAllCategory();
@@ -130,7 +129,6 @@ public class Kiosk {
   }
 
   // Show SubMenu
-  // Sub Menu 를 보여주는 함수
   public void showSubMenu(Menu menu) {
     Output.printOutput("[ " + menu.getCategoryName() + " ] 를 선택했습니다. \n");
     Output.printLineDivider();
@@ -139,7 +137,8 @@ public class Kiosk {
     Output.printOutput("0. 뒤로가기.");
   }
 
-  // Determines whether to finalize the order, remove a specific menu item, or return to the menu screen in the final ordering stage
+  /* Determines whether to finalize the order, remove a specific menu item,
+   or return to the menu screen in the final ordering stage */
   // 최종 주문 단계에서 주문을 확정할지, 특정 메뉴를 삭제할지, 메뉴판으로 돌아갈지 결정하는 역할을 하는 함수
   public void confirmOrReturn(Cart cart) {
     cart.showCartItems();
@@ -156,10 +155,14 @@ public class Kiosk {
       case 2 -> {
       }
       case 3 -> {
-        Output.printOutput("삭제할 장바구니 메뉴를 입력해주세요. ");
-        cart.removeCartItems(Input.getString());
+        Output.printOutput("삭제할 장바구니 메뉴를 입력해주세요. ['0' 입력 시 취소]");
+        cart.removeCartItems();
       }
-      default -> Output.printOutput("범위 밖입니다.");
+      default -> {
+        Output.printOutput("범위 밖입니다.");
+        confirmOrReturn(cart);
+        return;
+      }
     }
     Output.printMainBack();
   }
@@ -186,8 +189,8 @@ public class Kiosk {
     }
   }
 
-  // To process the selected menu into the shopping cart
-  // 선택한 메뉴를 쇼핑 카트로 처리하는 함수
+  // Process the selected menu
+  // 선택한 메뉴 보여주는 함수
   public void processSubMenuSelection(Menu menu, Cart cart) {
     showSubMenu(menu);
 
@@ -199,7 +202,21 @@ public class Kiosk {
       return;
     }
 
-    menu.displaySelectedMenu(orderMenuItem - 1);
+    boolean isDisplaySelectedMenu = menu.displaySelectedMenu(orderMenuItem - 1);
+
+    if (!isDisplaySelectedMenu) {
+      Output.printOutput("다시 재입력 해주세요.");
+      processSubMenuSelection(menu, cart);
+      return;
+    }
+
+    processCartInput(menu, orderMenuItem, cart);
+    Output.printMainBack();
+  }
+
+  // Processes the shopping cart based on user input
+  //사용자 입력을 받아 장바구니 처리하는 함수 (전반적인 흐름을 담당)
+  public void processCartInput(Menu menu, int orderMenuItem, Cart cart) {
     Output.printOutput("위 메뉴를 장바구니에 추가하시겠습니까?" +
             "\n1. 확인        | 2. 취소");
 
@@ -207,9 +224,16 @@ public class Kiosk {
     switch (categoryStatus) {
       case 1 -> cart.addCartItems(getSpecificMenuItem(menu, orderMenuItem - 1));
       case 2 -> Output.printOutput("장바구니에 담지 않았습니다.");
-      default -> Output.printOutOfRange();
+      default -> {
+        Output.printOutOfRange();
+        Output.printOutput("다시 재입력 해주세요.");
+        processCartInput(menu, orderMenuItem, cart);
+      }
     }
-    Output.printMainBack();
   }
 }
+
+
+
+
 

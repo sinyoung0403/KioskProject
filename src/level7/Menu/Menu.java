@@ -2,15 +2,16 @@ package level7.Menu;
 
 import io.Output;
 
+import java.lang.reflect.Constructor;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Menu {
-  // Field
+  /* Field */
   private final String categoryName;
   private final List<MenuItem> menuItems = new ArrayList<>();
 
-  // Constructor
+  /* Constructor */
   public Menu(String categoryName) {
     this.categoryName = categoryName;
   }
@@ -36,9 +37,15 @@ public class Menu {
   }
 
   // Show Choice Menu
-  public void displaySelectedMenu(Integer index) {
-    MenuItem item = menuItems.get(index);
-    Output.printOutput("선택된 메뉴: " + item.menuFormatString(false));
+  public boolean displaySelectedMenu(Integer index) {
+    if (index >= 0 && index < menuItems.size()) {
+      MenuItem item = menuItems.get(index);
+      Output.printOutput("선택된 메뉴: " + item.menuFormatString(false));
+      return true;
+    } else {
+      Output.printOutOfRange();
+      return false;
+    }
   }
   /* Getter Finish */
 
