@@ -241,8 +241,3 @@ public class Kiosk {
     }
   }
 }
-
-
-
-
-
