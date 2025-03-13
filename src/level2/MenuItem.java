@@ -7,7 +7,8 @@ public class MenuItem {
   Integer menuPrice;
   // 설명
   String menuDescription;
-  MenuItem(String menuName, Integer menuPrice, String menuDescription){
+
+  MenuItem(String menuName, Integer menuPrice, String menuDescription) {
     this.menuName = menuName;
     this.menuPrice = menuPrice;
     this.menuDescription = menuDescription;
