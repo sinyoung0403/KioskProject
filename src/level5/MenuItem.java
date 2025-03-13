@@ -8,7 +8,7 @@ public class MenuItem {
   // 설명
   private final String menuDescription;
 
-  MenuItem(String menuName, Integer menuPrice, String menuDescription){
+  MenuItem(String menuName, Integer menuPrice, String menuDescription) {
     this.menuName = menuName;
     this.menuPrice = menuPrice;
     this.menuDescription = menuDescription;
@@ -26,7 +26,13 @@ public class MenuItem {
   public String getMenuName() {
     return menuName;
   }
-  /* Getter Finish */
 
-  /* Setter Start */
+  public String menuFormatString(boolean gap) {
+    if (gap) {
+      return String.format("%-25s | %d 원 | %s", menuName, menuPrice, menuDescription);
+    } else {
+      return String.format("%s | %d 원 | %s", menuName, menuPrice, menuDescription);
+    }
+  }
+  /* Getter Finish */
 }
