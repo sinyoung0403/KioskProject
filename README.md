@@ -33,20 +33,20 @@
 
 - [필수] level1 을 구현한 패키지입니다. 
 - src/level1/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
-- `Main.java`: 키오스크 역할을 담당하고, **실행하는 클래스**
+- `Main.java`: 키오스크 역할을 담당하고, 실행하는 클래스
 
 ### 2) `level2` 패키지
 
 - [필수] level2 을 구현한 패키지입니다.
 - src/level2/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
-- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크 역할을 담당하고 **실행하는 클래스**
+- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크 역할을 담당하고 실행하는 클래스
 - `MenuItem`: MenuItem 을 관리하는 클래스
 
 ### 3) `level3` 패키지
 
 - [필수] level3 을 구현한 패키지입니다.
 - src/level3/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
-- `Main.java`: 메뉴 정보를 담고 있으며, **키오스크를 실행하는 클래스**
+- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크를 실행하는 클래스
 - `MenuItem`: MenuItem 을 관리하는 클래스
 - `Kiosk`: 키오스크 역할을 담당하는 클래스
 
@@ -54,7 +54,7 @@
 
 - [필수] level4 을 구현한 패키지입니다.
 - src/level4/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
-- `Main.java`: 메뉴 정보를 담고 있으며, **키오스크를 실행하는 클래스**
+- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크를 실행하는 클래스
 - `Menu.java`: Menu 를 관리하는 클래스
 - `MenuItem`: MenuItem 을 관리하는 클래스
 - `Kiosk`: 키오스크 역할을 담당하는 클래스
@@ -63,7 +63,7 @@
 
 - [필수] level5 을 구현한 패키지입니다.
 - src/level5/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
-- `Main.java`: 메뉴 정보를 담고 있으며, **키오스크를 실행하는 클래스**
+- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크를 실행하는 클래스
 - `Menu.java`: Menu 를 관리하는 클래스
 - `MenuItem`: MenuItem 을 관리하는 클래스
 - `Kiosk`: 키오스크 역할을 담당하는 클래스
@@ -72,7 +72,7 @@
 
 - [도전] level1 을 구현한 패키지입니다.
 - src/level6/Main.java 를 실행 시키면 키오스크를 실행할 수 있습니다.
-- `Main.java`: 메뉴 정보를 담고 있으며, **키오스크를 실행하는 클래스**
+- `Main.java`: 메뉴 정보를 담고 있으며, 키오스크를 실행하는 클래스
 - `Menu.java`: Menu 를 관리하는 클래스
 - `MenuItem`: MenuItem 을 관리하는 클래스
 - `Cart.java`: 장바구니 를 관리하는 클래스
@@ -236,11 +236,11 @@
 - 추가되거나 수량이 증가하면 출력 메시지 표시
 
 #### 3. 장바구니 내역 출력 (`showCartItems()`)
-- 현재 장바구니에 담긴 모든 항목의 **이름, 가격, 수량**을 출력
+- 현재 장바구니에 담긴 모든 항목의 "이름, 가격, 수량"을 출력
 - 총 가격도 함께 출력.
 
 #### 4. 총 가격 계산 (`getTotalPrice()`)
-- 장바구니에 담긴 모든 항목의 **가격 × 수량**을 합산하여 반환
+- 장바구니에 담긴 모든 항목의 "가격 × 수량"을 합산하여 반환
 
 #### 5. 장바구니가 비어있는지 확인 (`isCartNotEmpty()`)
 - 장바구니가 비어 있지 않으면 `true`, 비어 있으면 `false` 반환
@@ -273,34 +273,34 @@
 - `addCartItemQuantity()`: 항목 수량 1 증가
 
 #### 5. 장바구니 항목 출력 (`showAllCartItems()`)
-- **메뉴 이름, 가격, 설명, 수량**을 출력 형식에 맞춰 표시
+- "메뉴 이름, 가격, 설명, 수량"을 출력 형식에 맞춰 표시
 
 ----
 
 ## 📂 Menu
 
-### 🍽️ `Menu.java` 
+### 🍽️ **`Menu.java`**
 
 #### 1. 필드
-- `categoryName`: 메뉴 카테고리 이름.
-- `menuItems`: `MenuItem` 객체들을 담는 리스트.
+- `categoryName`: 메뉴 카테고리 이름
+- `menuItems`: `MenuItem` 객체들을 담는 리스트
 
 #### 2. 생성자
-- `Menu(String categoryName)`: 카테고리 이름을 받아 `categoryName` 필드 초기화.
+- `Menu(String categoryName)`: 카테고리 이름을 받아 `categoryName` 필드 초기화
 
 #### 3. Getter 메서드
-- `getMenuItems()`: `MenuItem` 객체들이 담긴 리스트 반환.
-- `getCategoryName()`: 메뉴 카테고리 이름 반환.
-- `showMenuItems()`: 메뉴 항목을 순차적으로 번호와 함께 출력.
+- `getMenuItems()`: `MenuItem` 객체들이 담긴 리스트 반환
+- `getCategoryName()`: 메뉴 카테고리 이름 반환
+- `showMenuItems()`: 메뉴 항목을 순차적으로 번호와 함께 출력
 
 #### 4. 메뉴 선택 출력 (`displaySelectedMenu(Integer index)`)
-- 사용자가 선택한 메뉴 인덱스가 유효하면 **선택된 메뉴 출력**.
-- 유효하지 않으면 **범위 초과 메시지 출력**.
+- 사용자가 선택한 메뉴 인덱스가 유효하면 선택된 메뉴 출력
+- 유효하지 않으면 범위 초과 메시지 출력
 
 #### 5. Setter 메서드
-- `addMenuItems(MenuItem menuItem)`: 새로운 `MenuItem`을 메뉴에 추가.
+- `addMenuItems(MenuItem menuItem)`: 새로운 `MenuItem`을 메뉴에 추가
 
-### 🍔 `MenuItem.java`
+### 🍔 **`MenuItem.java`**
 
 #### 1. 필드
 - `menuName`: 메뉴 이름
@@ -323,11 +323,11 @@
 
 ## 📂 etc
 
-### ⚡ `Main.java`
+### ⚡ **`Main.java`**
 
 - `Kiosk` 를 실행시켜주는 클래스
 
-### 📱 `Kiosk.java`
+### 📱 **`Kiosk.java`**
 
 #### 1. 필드
 - **`menus`**: 메뉴 카테고리 목록 (버거, 음료, 디저트 등)
@@ -336,7 +336,7 @@
 - `Kiosk()`: `initMenus()` 메서드를 호출하여 메뉴 카테고리와 아이템 초기화
 
 #### 3. 메뉴 초기화 (`initMenus()`)
-- **메뉴 카테고리 생성**: 버거, 음료, 디저트 카테고리를 생성하고 각 카테고리에 해당하는 메뉴 아이템을 추가
+- 메뉴 카테고리 생성: 버거, 음료, 디저트 카테고리를 생성하고 각 카테고리에 해당하는 메뉴 아이템을 추가
 
 #### 4. 주요 기능
 - 메인 메뉴 화면 (`showMainMenu()`)
@@ -367,7 +367,7 @@
 - `getSpecificMenus()`: 특정 메뉴 카테고리 반환
 - `getSpecificMenuItem()`: 특정 메뉴 항목 반환
 
-### 💸 `Dicount.java` - enum
+### 💸 **`Dicount.java`** - enum
 
 #### 1. 필드
 - `userType`: 할인 대상의 사용자 유형 (예: 국가유공자, 군인, 학생, 일반인).
@@ -388,29 +388,29 @@
 
 ## ️️🪢 데이터 흐름 (Data Flow)
 
-### 1. Kiosk 객체 생성 및 시작 (main() 메서드):
+### 1. Kiosk 객체 생성 및 시작 `main()`
 
-- Kiosk 클래스의 start() 메서드가 호출되면서 키오스크 시스템이 시작됩니다.
+- Kiosk 클래스의 `start()` 메서드가 호출되면서 키오스크 시스템이 시작됩니다.
 
-### 2. 메뉴 초기화 (initMenus()):
+### 2. 메뉴 초기화 `initMenus()`
 
-- Kiosk 클래스는 initMenus() 메서드에서 각 메뉴 카테고리 (버거, 음료, 디저트)를 초기화하고, 각 카테고리에는 여러 메뉴 항목이 추가됩니다.
+- Kiosk 클래스는 `initMenus()` 메서드에서 각 메뉴 카테고리 (버거, 음료, 디저트)를 초기화하고, 각 카테고리에는 여러 메뉴 항목이 추가됩니다.
 
-### 3. 메인 메뉴 출력 및 사용자 입력 처리 (start() 메서드):
+### 3. 메인 메뉴 출력 및 사용자 입력 처리 `start()`
 
 - 메인 메뉴가 출력되고, 사용자는 카테고리를 선택합니다.
 선택한 카테고리별로 해당 메뉴 항목이 출력되며, 사용자는 원하는 메뉴를 장바구니에 추가하거나 취소할 수 있습니다.
 
-### 4. 하위 메뉴 처리 (processSubMenuSelection()):
+### 4. 하위 메뉴 처리 `processSubMenuSelection()`
 
 - 사용자가 메뉴 항목을 선택하면 해당 항목을 장바구니에 추가할지 취소할지 결정합니다.
 
-### 5. 장바구니 확인 및 최종 주문 처리 (confirmOrReturn()):
+### 5. 장바구니 확인 및 최종 주문 처리 `confirmOrReturn()`
 
 - 사용자가 장바구니를 확인하고 주문을 최종적으로 확정하거나 취소할 수 있습니다.
 주문 확정 시, 할인 적용 여부가 결정됩니다.
 
-### 6. 할인 적용 (determineDiscount()):
+### 6. 할인 적용 `determineDiscount()`
 
 - 사용자가 선택한 할인 종류에 따라 할인율이 적용되며, 해당 할인율에 맞춰 최종 가격이 계산됩니다.
 
