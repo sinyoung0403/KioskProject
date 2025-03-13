@@ -13,18 +13,15 @@ public class Input {
       sc.nextLine();
       return inputNumber;
     } catch (InputMismatchException e) {
-      Output.printOutput("숫자를 입력하셔야 합니다.\n");
-      sc.nextLine();
-      throw new RuntimeException();
+      Output.printOutput("유효한 숫자가 아닙니다.\n재입력해주세요:");
     } catch (NullPointerException e) {
-      Output.printOutput("입력값이 비어있습니다.\n");
-      sc.nextLine();
-      throw new RuntimeException();
+      Output.printOutput("유효한 숫자가 아닙니다.\n재입력해주세요:");
     } catch (NumberFormatException e) {
-      Output.printOutput("유효한 숫자가 아닙니다.\n");
-      sc.nextLine();
-      throw new RuntimeException();
+      Output.printOutput("유효한 숫자가 아닙니다.\n재입력해주세요:");
     }
+    sc.nextLine();
+    int inputNumber = getInput();
+    return inputNumber;
   }
 
   // Get String
