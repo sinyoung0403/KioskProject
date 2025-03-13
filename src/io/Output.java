@@ -25,6 +25,10 @@ public class Output {
     System.out.println("범위 밖의 값을 입력했습니다.");
   }
 
+  public static void printReturn() {
+    System.out.println("재입력부탁드립니다.");
+  }
+
   // 모든 카테고리 포맷팅 출력문
   public static void printfCategoryOutput(Integer a, String b) {
     System.out.printf("%d. %s\n", a, b);
