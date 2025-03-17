@@ -44,13 +44,13 @@ public class Cart {
   // Add all the prices on the list
   public int getTotalPrice() {
     return cartItemMap.values().stream()
-            .map(cartItem -> cartItem.getMenuItem().getMenuPrice() * cartItem.getItemQuantity())
-            .reduce(0, Integer::sum);
+            .mapToInt(cartItem -> cartItem.getMenuItem().getMenuPrice() * cartItem.getItemQuantity())
+            .sum();
   }
 
   // Check with boolean whether the list is empty or not
-  public boolean isCartNotEmpty() {
-    return !cartItemMap.isEmpty();
+  public boolean isCartEmpty() {
+    return cartItemMap.isEmpty();
   }
 
   // Initialize the list

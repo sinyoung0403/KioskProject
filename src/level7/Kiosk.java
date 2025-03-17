@@ -9,7 +9,6 @@ import level7.cart.Cart;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
 public class Kiosk {
   /* field */
   private final List<Menu> menus;
@@ -65,7 +64,7 @@ public class Kiosk {
             continue;
           }
           case 4 -> {
-            if (!cart.isCartNotEmpty()) {
+            if (cart.isCartEmpty()) {
               Output.printOutOfRange();
             } else {
               confirmOrReturn(cart);
@@ -73,7 +72,7 @@ public class Kiosk {
             continue;
           }
           case 5 -> {
-            if (cart.isCartNotEmpty()) {
+            if (!cart.isCartEmpty()) {
               cart.clearCartItems();
               Output.printOutput("장바구니를 취소했습니다.");
               Output.printMainBack();
@@ -121,7 +120,7 @@ public class Kiosk {
   public void showMainMenu(Cart cart, Menu menu) {
     Output.printOutput("[ Burger King | MAIN MENU ]");
     showAllCategory();
-    if (cart.isCartNotEmpty()) {
+    if (!cart.isCartEmpty()) {
       Output.printOutput("4. Orders     | 장바구니를 확인 후 주문합니다.");
       Output.printOutput("5. Cancel     | 진행중인 주문을 취소합니다.");
     }
