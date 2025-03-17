@@ -1,5 +1,3 @@
-
-
 |          Kiosk Project          |  
 |:-------------------------------------:|
 | <img src="https://github.com/user-attachments/assets/6d48f3cc-b8d9-46f1-91bb-ae2b599fe4ce" alt="image" width="300"> |
